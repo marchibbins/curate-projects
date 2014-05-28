@@ -9,19 +9,23 @@ Template Name: Project template
 
 <?php
 
-// Find children of current page
-$query = new WP_Query();
-$all_pages = $query->query(array('post_type' => 'page'));
-$page_children = get_page_children( get_the_ID(), $all_pages );
+$query = "
+    SELECT $wpdb->posts.*
+    FROM $wpdb->posts
+    WHERE $wpdb->posts.post_parent = ".get_the_ID()."
+    AND $wpdb->posts.post_status = 'publish'
+    AND $wpdb->posts.post_type = 'page'
+    AND $wpdb->posts.post_date < NOW()
+    ORDER BY $wpdb->posts.menu_order ASC
+ ";
 
-// Sort
-function menu_order_sort($a, $b) {
-    return strcmp($a->menu_order, $b->menu_order);
-}
+ $child_pages = $wpdb->get_results($query, OBJECT);
+?>
 
-usort($page_children, 'menu_order_sort');
-
-// Loop le loop
-foreach ($page_children as $partial):
-    include(locate_template('templates/content-partial.php'));
-endforeach; ?>
+<?php if ($child_pages): ?>
+  <?php global $post; ?>
+  <?php foreach ($child_pages as $post): ?>
+    <?php setup_postdata($post); ?>
+    <?php get_template_part('templates/content', 'partial'); ?>
+  <?php endforeach; ?>
+ <?php endif; ?>
