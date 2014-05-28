@@ -14,12 +14,14 @@ $query = new WP_Query();
 $all_pages = $query->query(array('post_type' => 'page'));
 $page_children = get_page_children( get_the_ID(), $all_pages );
 
-// Loop like this??
-    foreach ($page_children as $child) :
-        if ($child->post_status === 'publish') : ?>
+// Sort
+function menu_order_sort($a, $b) {
+    return strcmp($a->menu_order, $b->menu_order);
+}
 
-            <h2><?php echo $child->post_title; ?></h2>
-            <div><?php echo $child->post_content; ?></div>
+usort($page_children, 'menu_order_sort');
 
-<?php   endif;
-    endforeach; ?>
+// Loop le loop
+foreach ($page_children as $partial):
+    include(locate_template('templates/content-partial.php'));
+endforeach; ?>
