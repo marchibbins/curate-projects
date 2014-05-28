@@ -11,6 +11,7 @@ $query = "
     AND $wpdb->posts.post_type = 'page'
     AND $wpdb->posts.post_date < NOW()
     ORDER BY $wpdb->posts.post_date DESC
+    LIMIT 1
  ";
 
  $current_projects = $wpdb->get_results($query, OBJECT);
