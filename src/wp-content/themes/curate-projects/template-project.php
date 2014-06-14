@@ -23,9 +23,22 @@ $query = "
 ?>
 
 <?php if ($child_pages): ?>
+
+  <ul class="nav nav-pills">
+    <?php foreach ($child_pages as $key => $post): ?>
+      <li class="<?= first($child_pages, $key) ? 'active' : ''; ?>">
+        <a href="#<?= $post->post_name ?>" data-toggle="tab"><?= $post->post_title; ?></a>
+      </li>
+    <?php endforeach; ?>
+  </ul>
+
   <?php global $post; ?>
-  <?php foreach ($child_pages as $post): ?>
-    <?php setup_postdata($post); ?>
-    <?php get_template_part('templates/content', 'partial'); ?>
-  <?php endforeach; ?>
+  <div class="tab-content">
+    <?php foreach ($child_pages as $key => $post): ?>
+      <?php setup_postdata($post); ?>
+      <div class="tab-pane <?= first($child_pages, $key) ? 'active' : ''; ?>" id="<?= $post->post_name ?>">
+        <?php get_template_part('templates/content', 'partial'); ?>
+      </div>
+    <?php endforeach; ?>
+  </div>
  <?php endif; ?>
