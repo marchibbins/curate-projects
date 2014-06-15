@@ -92,7 +92,7 @@ function ms_site_check() {
 		if ( file_exists( WP_CONTENT_DIR . '/blog-deleted.php' ) )
 			return WP_CONTENT_DIR . '/blog-deleted.php';
 		else
-			wp_die( __( 'This site is no longer available.' ), '', array( 'response' => 410 ) );
+			wp_die( __( 'This user has elected to delete their account and the content is no longer available.' ), '', array( 'response' => 410 ) );
 	}
 
 	if ( '2' == $blog->deleted ) {
@@ -125,7 +125,7 @@ function ms_site_check() {
 function get_network_by_path( $domain, $path, $segments = null ) {
 	global $wpdb;
 
-	$domains = array( $domain );
+	$domains = $exact_domains = array( $domain );
 	$pieces = explode( '.', $domain );
 
 	/*
@@ -426,13 +426,13 @@ function ms_not_installed() {
  *
  * @access private
  * @since 3.0.0
- * @deprecated 3.9.0 Use get_current_site() instead.
+ * @deprecated 3.9.0
  *
  * @param object $current_site
  * @return object
  */
 function get_current_site_name( $current_site ) {
-	_deprecated_function( __FUNCTION__, '3.9', 'get_current_site()' );
+	_deprecated_function( __FUNCTION__, '3.9' );
 	return $current_site;
 }
 

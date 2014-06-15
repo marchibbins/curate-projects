@@ -1390,7 +1390,7 @@
 	margin-top: 35px;
 }
 
-.attachment-info .thumbnail-image:after {
+.attachment-info .thumbnail:after {
 	content: '';
 	display: block;
 	position: absolute;
@@ -1583,7 +1583,7 @@
 
 .media-frame .embed-url .spinner {
 	position: absolute;
-	top: 32px;
+	top: 16px;
 	right: 26px;
 }
 
@@ -1594,20 +1594,12 @@
 .embed-link-settings,
 .embed-media-settings {
 	position: absolute;
-	top: 70px;
+	top: 60px;
 	left: 0;
 	right: 0;
 	bottom: 0;
 	padding: 16px 16px 32px;
 	overflow: auto;
-}
-
-.embed-preview img, .embed-preview iframe, .embed-preview embed {
-	max-width: 100%;
-}
-
-.embed-preview img {
-	height: auto;
 }
 
 .image-details .media-modal {

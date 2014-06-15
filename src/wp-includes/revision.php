@@ -190,6 +190,7 @@ function wp_get_post_autosave( $post_id, $user_id = 0 ) {
 				continue;
 
 			return $revision;
+			break;
 		}
 	}
 
@@ -253,6 +254,7 @@ function _wp_put_post_revision( $post = null, $autosave = false ) {
 	if ( isset($post['post_type']) && 'revision' == $post['post_type'] )
 		return new WP_Error( 'post_type', __( 'Cannot create a revision of a revision' ) );
 
+	$post_id = $post['ID'];
 	$post = _wp_post_revision_fields( $post, $autosave );
 	$post = wp_slash($post); //since data is from db
 
@@ -417,7 +419,7 @@ function wp_get_post_revisions( $post_id = 0, $args = null ) {
 	if ( ! $post || empty( $post->ID ) )
 		return array();
 
-	$defaults = array( 'order' => 'DESC', 'orderby' => 'date ID', 'check_enabled' => true );
+	$defaults = array( 'order' => 'DESC', 'orderby' => 'date', 'check_enabled' => true );
 	$args = wp_parse_args( $args, $defaults );
 
 	if ( $args['check_enabled'] && ! wp_revisions_enabled( $post ) )

@@ -441,9 +441,8 @@ function export_wp( $args = array() ) {
 			<wp:meta_key><?php echo $meta->meta_key; ?></wp:meta_key>
 			<wp:meta_value><?php echo wxr_cdata( $meta->meta_value ); ?></wp:meta_value>
 		</wp:postmeta>
-<?php	endforeach;
-
-		$comments = $wpdb->get_results( $wpdb->prepare( "SELECT * FROM $wpdb->comments WHERE comment_post_ID = %d AND comment_approved <> 'spam'", $post->ID ) );
+<?php	endforeach; ?>
+<?php	$comments = $wpdb->get_results( $wpdb->prepare( "SELECT * FROM $wpdb->comments WHERE comment_post_ID = %d AND comment_approved <> 'spam'", $post->ID ) );
 		foreach ( $comments as $c ) : ?>
 		<wp:comment>
 			<wp:comment_id><?php echo $c->comment_ID; ?></wp:comment_id>

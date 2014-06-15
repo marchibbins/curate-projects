@@ -449,7 +449,7 @@ class WP_User_Query {
 	 * @access public
 	 * @var array
 	 */
-	public $query_vars = array();
+	var $query_vars = array();
 
 	/**
 	 * List of found user ids
@@ -458,7 +458,7 @@ class WP_User_Query {
 	 * @access private
 	 * @var array
 	 */
-	private $results;
+	var $results;
 
 	/**
 	 * Total number of found users for the current query
@@ -467,14 +467,14 @@ class WP_User_Query {
 	 * @access private
 	 * @var int
 	 */
-	private $total_users = 0;
+	var $total_users = 0;
 
 	// SQL clauses
-	public $query_fields;
-	public $query_from;
-	public $query_where;
-	public $query_orderby;
-	public $query_limit;
+	var $query_fields;
+	var $query_from;
+	var $query_where;
+	var $query_orderby;
+	var $query_limit;
 
 	/**
 	 * PHP5 constructor.
@@ -484,7 +484,7 @@ class WP_User_Query {
 	 * @param string|array $args Optional. The query variables.
 	 * @return WP_User_Query
 	 */
-	public function __construct( $query = null ) {
+	function __construct( $query = null ) {
 		if ( ! empty( $query ) ) {
 			$this->prepare_query( $query );
 			$this->query();
@@ -498,7 +498,7 @@ class WP_User_Query {
 	 *
 	 * @param string|array $args Optional. The query variables.
 	 */
-	public function prepare_query( $query = array() ) {
+	function prepare_query( $query = array() ) {
 		global $wpdb;
 
 		if ( empty( $this->query_vars ) || ! empty( $query ) ) {
@@ -712,7 +712,7 @@ class WP_User_Query {
 	 *
 	 * @global wpdb $wpdb WordPress database object for queries.
 	 */
-	public function query() {
+	function query() {
 		global $wpdb;
 
 		$qv =& $this->query_vars;
@@ -764,7 +764,7 @@ class WP_User_Query {
 	 * @param string $query_var Query variable key.
 	 * @return mixed
 	 */
-	public function get( $query_var ) {
+	function get( $query_var ) {
 		if ( isset( $this->query_vars[$query_var] ) )
 			return $this->query_vars[$query_var];
 
@@ -780,7 +780,7 @@ class WP_User_Query {
 	 * @param string $query_var Query variable key.
 	 * @param mixed $value Query variable value.
 	 */
-	public function set( $query_var, $value ) {
+	function set( $query_var, $value ) {
 		$this->query_vars[$query_var] = $value;
 	}
 
@@ -796,7 +796,7 @@ class WP_User_Query {
 	 *  single site. Single site allows leading and trailing wildcards, Network Admin only trailing.
 	 * @return string
 	 */
-	protected function get_search_sql( $string, $cols, $wild = false ) {
+	function get_search_sql( $string, $cols, $wild = false ) {
 		$string = esc_sql( $string );
 
 		$searches = array();
@@ -820,7 +820,7 @@ class WP_User_Query {
 	 *
 	 * @return array Array of results.
 	 */
-	public function get_results() {
+	function get_results() {
 		return $this->results;
 	}
 
@@ -832,65 +832,8 @@ class WP_User_Query {
 	 *
 	 * @return array Array of total users.
 	 */
-	public function get_total() {
+	function get_total() {
 		return $this->total_users;
-	}
-
-	/**
-	 * Make private properties readable for backwards compatibility
-	 *
-	 * @since 4.0.0
-	 * @param string $name
-	 * @return mixed
-	 */
-	public function __get( $name ) {
-		return $this->$name;
-	}
-
-	/**
-	 * Make private properties setable for backwards compatibility
-	 *
-	 * @since 4.0.0
-	 * @param string $name
-	 * @param string $value
-	 * @return mixed
-	 */
-	public function __set( $name, $value ) {
-		return $this->$name = $value;
-	}
-
-	/**
-	 * Make private properties checkable for backwards compatibility
-	 *
-	 * @since 4.0.0
-	 * @param string $name
-	 * @return mixed
-	 */
-	public function __isset( $name ) {
-		return isset( $this->$name );
-	}
-
-	/**
-	 * Make private properties unsetable for backwards compatibility
-	 *
-	 * @since 4.0.0
-	 * @param string $name
-	 * @return mixed
-	 */
-	public function __unset( $name ) {
-		unset( $this->$name );
-	}
-
-	/**
-	 * Make private/protected methods readable for backwards compatibility
-	 *
-	 * @since 4.0.0
-	 * @param string $name
-	 * @param array $arguments
-	 * @return mixed
-	 */
-	public function __call( $name, $arguments ) {
-		return call_user_func_array( array( $this, $name ), $arguments );
 	}
 }
 
@@ -1252,7 +1195,6 @@ function setup_userdata($for_user_id = '') {
  * <ol>
  * <li>show_option_all - Text to show all and whether HTML option exists.</li>
  * <li>show_option_none - Text for show none and whether HTML option exists.</li>
- * <li>option_none_value - Value to use when no option is selected.</li>
  * <li>hide_if_only_one_author - Don't create the dropdown if there is only one user.</li>
  * <li>orderby - SQL order by clause for what order the users appear. Default is 'display_name'.</li>
  * <li>order - Default is 'ASC'. Can also be 'DESC'.</li>
@@ -1286,57 +1228,51 @@ function wp_dropdown_users( $args = '' ) {
 		'include' => '', 'exclude' => '', 'multi' => 0,
 		'show' => 'display_name', 'echo' => 1,
 		'selected' => 0, 'name' => 'user', 'class' => '', 'id' => '',
-		'blog_id' => $GLOBALS['blog_id'], 'who' => '', 'include_selected' => false,
-		'option_none_value' => -1
+		'blog_id' => $GLOBALS['blog_id'], 'who' => '', 'include_selected' => false
 	);
 
 	$defaults['selected'] = is_author() ? get_query_var( 'author' ) : 0;
 
 	$r = wp_parse_args( $args, $defaults );
-	$show = $r['show'];
-	$show_option_all = $r['show_option_all'];
-	$show_option_none = $r['show_option_none'];
-	$option_none_value = $r['option_none_value'];
+	extract( $r, EXTR_SKIP );
 
 	$query_args = wp_array_slice_assoc( $r, array( 'blog_id', 'include', 'exclude', 'orderby', 'order', 'who' ) );
 	$query_args['fields'] = array( 'ID', 'user_login', $show );
 	$users = get_users( $query_args );
 
 	$output = '';
-	if ( ! empty( $users ) && ( empty( $r['hide_if_only_one_author'] ) || count( $users ) > 1 ) ) {
-		$name = esc_attr( $r['name'] );
-		if ( $r['multi'] && ! $r['id'] ) {
+	if ( !empty($users) && ( empty($hide_if_only_one_author) || count($users) > 1 ) ) {
+		$name = esc_attr( $name );
+		if ( $multi && ! $id )
 			$id = '';
-		} else {
-			$id = $r['id'] ? " id='" . esc_attr( $r['id'] ) . "'" : " id='$name'";
-		}
-		$output = "<select name='{$name}'{$id} class='" . $r['class'] . "'>\n";
+		else
+			$id = $id ? " id='" . esc_attr( $id ) . "'" : " id='$name'";
 
-		if ( $show_option_all ) {
+		$output = "<select name='{$name}'{$id} class='$class'>\n";
+
+		if ( $show_option_all )
 			$output .= "\t<option value='0'>$show_option_all</option>\n";
-		}
 
 		if ( $show_option_none ) {
-			$_selected = selected( $option_none_value, $r['selected'], false );
-			$output .= "\t<option value='" . esc_attr( $option_none_value ) . "'$_selected>$show_option_none</option>\n";
+			$_selected = selected( -1, $selected, false );
+			$output .= "\t<option value='-1'$_selected>$show_option_none</option>\n";
 		}
 
 		$found_selected = false;
 		foreach ( (array) $users as $user ) {
 			$user->ID = (int) $user->ID;
-			$_selected = selected( $user->ID, $r['selected'], false );
-			if ( $_selected ) {
+			$_selected = selected( $user->ID, $selected, false );
+			if ( $_selected )
 				$found_selected = true;
-			}
-			$display = ! empty( $user->$show ) ? $user->$show : '('. $user->user_login . ')';
-			$output .= "\t<option value='$user->ID'$_selected>" . esc_html( $display ) . "</option>\n";
+			$display = !empty($user->$show) ? $user->$show : '('. $user->user_login . ')';
+			$output .= "\t<option value='$user->ID'$_selected>" . esc_html($display) . "</option>\n";
 		}
 
-		if ( $r['include_selected'] && ! $found_selected && ( $r['selected'] > 0 ) ) {
-			$user = get_userdata( $r['selected'] );
-			$_selected = selected( $user->ID, $r['selected'], false );
-			$display = ! empty( $user->$show ) ? $user->$show : '('. $user->user_login . ')';
-			$output .= "\t<option value='$user->ID'$_selected>" . esc_html( $display ) . "</option>\n";
+		if ( $include_selected && ! $found_selected && ( $selected > 0 ) ) {
+			$user = get_userdata( $selected );
+			$_selected = selected( $user->ID, $selected, false );
+			$display = !empty($user->$show) ? $user->$show : '('. $user->user_login . ')';
+			$output .= "\t<option value='$user->ID'$_selected>" . esc_html($display) . "</option>\n";
 		}
 
 		$output .= "</select>";
@@ -1349,12 +1285,12 @@ function wp_dropdown_users( $args = '' ) {
 	 *
 	 * @param string $output HTML output generated by wp_dropdown_users().
 	 */
-	$html = apply_filters( 'wp_dropdown_users', $output );
+	$output = apply_filters( 'wp_dropdown_users', $output );
 
-	if ( $r['echo'] ) {
-		echo $html;
-	}
-	return $html;
+	if ( $echo )
+		echo $output;
+
+	return $output;
 }
 
 /**
@@ -1595,25 +1531,25 @@ function validate_username( $username ) {
 function wp_insert_user( $userdata ) {
 	global $wpdb;
 
-	if ( is_a( $userdata, 'stdClass' ) ) {
+	if ( is_a( $userdata, 'stdClass' ) )
 		$userdata = get_object_vars( $userdata );
-	} elseif ( is_a( $userdata, 'WP_User' ) ) {
+	elseif ( is_a( $userdata, 'WP_User' ) )
 		$userdata = $userdata->to_array();
-	}
+
+	extract( $userdata, EXTR_SKIP );
+
 	// Are we updating or creating?
-	if ( ! empty( $userdata['ID'] ) ) {
-		$ID = (int) $userdata['ID'];
+	if ( !empty($ID) ) {
+		$ID = (int) $ID;
 		$update = true;
 		$old_user_data = WP_User::get_data_by( 'id', $ID );
-		// hashed in wp_update_user(), plaintext if called directly
-		$user_pass = $userdata['user_pass'];
 	} else {
 		$update = false;
 		// Hash the password
-		$user_pass = wp_hash_password( $userdata['user_pass'] );
+		$user_pass = wp_hash_password($user_pass);
 	}
 
-	$sanitized_user_login = sanitize_user( $userdata['user_login'], true );
+	$user_login = sanitize_user($user_login, true);
 
 	/**
 	 * Filter a username after it has been sanitized.
@@ -1622,24 +1558,22 @@ function wp_insert_user( $userdata ) {
 	 *
 	 * @since 2.0.3
 	 *
-	 * @param string $sanitized_user_login Username after it has been sanitized.
+	 * @param string $user_login Username after it has been sanitized.
 	 */
-	$pre_user_login = apply_filters( 'pre_user_login', $sanitized_user_login );
+	$user_login = apply_filters( 'pre_user_login', $user_login );
 
 	//Remove any non-printable chars from the login string to see if we have ended up with an empty username
-	$user_login = trim( $pre_user_login );
+	$user_login = trim($user_login);
 
-	if ( empty( $user_login ) ) {
+	if ( empty($user_login) )
 		return new WP_Error('empty_user_login', __('Cannot create a user with an empty login name.') );
-	}
-	if ( ! $update && username_exists( $user_login ) ) {
+
+	if ( !$update && username_exists( $user_login ) )
 		return new WP_Error( 'existing_user_login', __( 'Sorry, that username already exists!' ) );
-	}
-	if ( empty( $userdata['user_nicename'] ) ) {
+
+	if ( empty($user_nicename) )
 		$user_nicename = sanitize_title( $user_login );
-	} else {
-		$user_nicename = $userdata['user_nicename'];
-	}
+
 	/**
 	 * Filter a user's nicename before the user is created or updated.
 	 *
@@ -1649,7 +1583,8 @@ function wp_insert_user( $userdata ) {
 	 */
 	$user_nicename = apply_filters( 'pre_user_nicename', $user_nicename );
 
-	$user_url = empty( $userdata['user_url'] ) ? '' : $userdata['user_url'];
+	if ( empty($user_url) )
+		$user_url = '';
 
 	/**
 	 * Filter a user's URL before the user is created or updated.
@@ -1660,7 +1595,8 @@ function wp_insert_user( $userdata ) {
 	 */
 	$user_url = apply_filters( 'pre_user_url', $user_url );
 
-	$user_email = empty( $userdata['user_email'] ) ? '' : $userdata['user_email'];
+	if ( empty($user_email) )
+		$user_email = '';
 
 	/**
 	 * Filter a user's email before the user is created or updated.
@@ -1671,10 +1607,12 @@ function wp_insert_user( $userdata ) {
 	 */
 	$user_email = apply_filters( 'pre_user_email', $user_email );
 
-	if ( ! $update && ! defined( 'WP_IMPORTING' ) && email_exists( $user_email ) ) {
+	if ( !$update && ! defined( 'WP_IMPORTING' ) && email_exists($user_email) )
 		return new WP_Error( 'existing_user_email', __( 'Sorry, that email address is already used!' ) );
-	}
-	$nickname = empty( $userdata['nickname'] ) ? $user_login : $userdata['nickname'];
+
+	if ( empty($nickname) )
+		$nickname = $user_login;
+
 	/**
 	 * Filter a user's nickname before the user is created or updated.
 	 *
@@ -1684,7 +1622,8 @@ function wp_insert_user( $userdata ) {
 	 */
 	$nickname = apply_filters( 'pre_user_nickname', $nickname );
 
-	$first_name = empty( $userdata['first_name'] ) ? '' : $userdata['first_name'];
+	if ( empty($first_name) )
+		$first_name = '';
 
 	/**
 	 * Filter a user's first name before the user is created or updated.
@@ -1695,7 +1634,8 @@ function wp_insert_user( $userdata ) {
 	 */
 	$first_name = apply_filters( 'pre_user_first_name', $first_name );
 
-	$last_name = empty( $userdata['last_name'] ) ? '' : $userdata['last_name'];
+	if ( empty($last_name) )
+		$last_name = '';
 
 	/**
 	 * Filter a user's last name before the user is created or updated.
@@ -1706,21 +1646,18 @@ function wp_insert_user( $userdata ) {
 	 */
 	$last_name = apply_filters( 'pre_user_last_name', $last_name );
 
-	if ( empty( $userdata['display_name'] ) ) {
-		if ( $update ) {
+	if ( empty( $display_name ) ) {
+		if ( $update )
 			$display_name = $user_login;
-		} elseif ( $first_name && $last_name ) {
+		elseif ( $first_name && $last_name )
 			/* translators: 1: first name, 2: last name */
 			$display_name = sprintf( _x( '%1$s %2$s', 'Display name based on first name and last name' ), $first_name, $last_name );
-		} elseif ( $first_name ) {
+		elseif ( $first_name )
 			$display_name = $first_name;
-		} elseif ( $last_name ) {
+		elseif ( $last_name )
 			$display_name = $last_name;
-		} else {
+		else
 			$display_name = $user_login;
-		}
-	} else {
-		$display_name = $userdata['display_name'];
 	}
 
 	/**
@@ -1732,7 +1669,8 @@ function wp_insert_user( $userdata ) {
 	 */
 	$display_name = apply_filters( 'pre_user_display_name', $display_name );
 
-	$description = empty( $userdata['description'] ) ? '' : $userdata['description'];
+	if ( empty($description) )
+		$description = '';
 
 	/**
 	 * Filter a user's description before the user is created or updated.
@@ -1743,18 +1681,24 @@ function wp_insert_user( $userdata ) {
 	 */
 	$description = apply_filters( 'pre_user_description', $description );
 
-	$rich_editing = empty( $userdata['rich_editing'] ) ? 'true' : $userdata['rich_editing'];
+	if ( empty($rich_editing) )
+		$rich_editing = 'true';
 
-	$comment_shortcuts = empty( $userdata['comment_shortcuts'] ) ? 'false' : $userdata['comment_shortcuts'];
+	if ( empty($comment_shortcuts) )
+		$comment_shortcuts = 'false';
 
-	$admin_color = empty( $userdata['admin_color'] ) ? 'fresh' : $userdata['admin_color'];
-	$admin_color = preg_replace( '|[^a-z0-9 _.\-@]|i', '', $admin_color );
+	if ( empty($admin_color) )
+		$admin_color = 'fresh';
+	$admin_color = preg_replace('|[^a-z0-9 _.\-@]|i', '', $admin_color);
 
-	$use_ssl = empty( $userdata['use_ssl'] ) ? 0 : $userdata['use_ssl'];
+	if ( empty($use_ssl) )
+		$use_ssl = 0;
 
-	$user_registered = empty( $userdata['user_registered'] ) ? gmdate( 'Y-m-d H:i:s' ) : $userdata['user_registered'];
+	if ( empty($user_registered) )
+		$user_registered = gmdate('Y-m-d H:i:s');
 
-	$show_admin_bar_front = empty( $userdata['show_admin_bar_front'] ) ? 'true' : $userdata['show_admin_bar_front'];
+	if ( empty($show_admin_bar_front) )
+		$show_admin_bar_front = 'true';
 
 	$user_nicename_check = $wpdb->get_var( $wpdb->prepare("SELECT ID FROM $wpdb->users WHERE user_nicename = %s AND user_login != %s LIMIT 1" , $user_nicename, $user_login));
 
@@ -1782,18 +1726,17 @@ function wp_insert_user( $userdata ) {
 	$user = new WP_User( $user_id );
 
 	foreach ( _get_additional_user_keys( $user ) as $key ) {
-		if ( isset( $$key ) ) {
+		if ( isset( $$key ) )
 			update_user_meta( $user_id, $key, $$key );
-		}
 	}
 
-	if ( isset( $userdata['role'] ) ) {
-		$user->set_role( $userdata['role'] );
-	} elseif ( ! $update ) {
+	if ( isset($role) )
+		$user->set_role($role);
+	elseif ( !$update )
 		$user->set_role(get_option('default_role'));
-	}
-	wp_cache_delete( $user_id, 'users' );
-	wp_cache_delete( $user_login, 'userlogins' );
+
+	wp_cache_delete($user_id, 'users');
+	wp_cache_delete($user_login, 'userlogins');
 
 	if ( $update ) {
 		/**

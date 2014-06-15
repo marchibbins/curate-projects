@@ -578,6 +578,7 @@ function update_metadata_by_mid( $meta_type, $meta_id, $meta_value, $meta_key = 
 	// Fetch the meta and go on if it's found.
 	if ( $meta = get_metadata_by_mid( $meta_type, $meta_id ) ) {
 		$original_key = $meta->meta_key;
+		$original_value = $meta->meta_value;
 		$object_id = $meta->{$column};
 
 		// If a new meta_key (last parameter) was specified, change the meta key,
@@ -847,7 +848,7 @@ class WP_Meta_Query {
 	 *
 	 * @param array $meta_query (optional) A meta query
 	 */
-	public function __construct( $meta_query = false ) {
+	function __construct( $meta_query = false ) {
 		if ( !$meta_query )
 			return;
 
@@ -875,7 +876,7 @@ class WP_Meta_Query {
 	 *
 	 * @param array $qv The query variables
 	 */
-	public function parse_query_vars( $qv ) {
+	function parse_query_vars( $qv ) {
 		$meta_query = array();
 
 		// Simple query needs to be first for orderby=meta_value to work correctly
@@ -903,7 +904,7 @@ class WP_Meta_Query {
 	 * @param string $type MySQL type to cast meta_value
 	 * @return string MySQL type
 	 */
-	public function get_cast_for_type( $type = '' ) {
+	function get_cast_for_type( $type = '' ) {
 		if ( empty( $type ) )
 			return 'CHAR';
 
@@ -930,7 +931,7 @@ class WP_Meta_Query {
 	 * @param object $context (optional) The main query object
 	 * @return array( 'join' => $join_sql, 'where' => $where_sql )
 	 */
-	public function get_sql( $type, $primary_table, $primary_id_column, $context = null ) {
+	function get_sql( $type, $primary_table, $primary_id_column, $context = null ) {
 		global $wpdb;
 
 		if ( ! $meta_table = _get_meta_table( $type ) )

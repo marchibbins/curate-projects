@@ -55,16 +55,19 @@ function mysql2date( $format, $date, $translate = true ) {
  *
  * @param string $type 'mysql', 'timestamp', or PHP date format string (e.g. 'Y-m-d').
  * @param int|bool $gmt Optional. Whether to use GMT timezone. Default is false.
- * @return int|string Integer if $type is 'timestamp', string otherwise.
+ * @return int|string String if $type is 'gmt', int if $type is 'timestamp'.
  */
 function current_time( $type, $gmt = 0 ) {
 	switch ( $type ) {
 		case 'mysql':
 			return ( $gmt ) ? gmdate( 'Y-m-d H:i:s' ) : gmdate( 'Y-m-d H:i:s', ( time() + ( get_option( 'gmt_offset' ) * HOUR_IN_SECONDS ) ) );
+			break;
 		case 'timestamp':
 			return ( $gmt ) ? time() : time() + ( get_option( 'gmt_offset' ) * HOUR_IN_SECONDS );
+			break;
 		default:
 			return ( $gmt ) ? date( $type ) : date( $type, time() + ( get_option( 'gmt_offset' ) * HOUR_IN_SECONDS ) );
+			break;
 	}
 }
 
@@ -142,7 +145,7 @@ function date_i18n( $dateformatstring, $unixtimestamp = false, $gmt = false ) {
 	 * Filter the date formatted based on the locale.
 	 *
 	 * @since 2.8.0
-	 *
+	 * 
 	 * @param string $j          Formatted date string.
 	 * @param string $req_format Format to display the date.
 	 * @param int    $i          Unix timestamp.
@@ -605,12 +608,11 @@ function wp_get_http_headers( $url, $deprecated = false ) {
 }
 
 /**
- * Whether the publish date of the current post in the loop is different from the
- * publish date of the previous post in the loop.
+ * Whether today is a new day.
  *
  * @since 0.71
- * @global string $currentday The day of the current post in the loop.
- * @global string $previousday The day of the previous post in the loop.
+ * @uses $day Today
+ * @uses $previousday Previous day
  *
  * @return int 1 when new day, 0 if not a new day.
  */
@@ -690,6 +692,7 @@ function _http_build_query($data, $prefix=null, $sep=null, $key='', $urlencode=t
  * @return string New URL query string.
  */
 function add_query_arg() {
+	$ret = '';
 	$args = func_get_args();
 	if ( is_array( $args[0] ) ) {
 		if ( count( $args ) < 2 || false === $args[1] )
@@ -1424,6 +1427,7 @@ function wp_mkdir_p( $target ) {
 	}
 
 	// Get the permission bits.
+	$dir_perms = false;
 	if ( $stat = @stat( $target_parent ) ) {
 		$dir_perms = $stat['mode'] & 0007777;
 	} else {
@@ -1922,7 +1926,7 @@ function wp_ext2type( $ext ) {
 		'image'       => array( 'jpg', 'jpeg', 'jpe',  'gif',  'png',  'bmp',   'tif',  'tiff', 'ico' ),
 		'audio'       => array( 'aac', 'ac3',  'aif',  'aiff', 'm3a',  'm4a',   'm4b',  'mka',  'mp1',  'mp2',  'mp3', 'ogg', 'oga', 'ram', 'wav', 'wma' ),
 		'video'       => array( 'asf', 'avi',  'divx', 'dv',   'flv',  'm4v',   'mkv',  'mov',  'mp4',  'mpeg', 'mpg', 'mpv', 'ogm', 'ogv', 'qt',  'rm', 'vob', 'wmv' ),
-		'document'    => array( 'doc', 'docx', 'docm', 'dotm', 'odt',  'pages', 'pdf',  'xps',  'oxps', 'rtf',  'wp',   'wpd' ),
+		'document'    => array( 'doc', 'docx', 'docm', 'dotm', 'odt',  'pages', 'pdf',  'rtf',  'wp',   'wpd' ),
 		'spreadsheet' => array( 'numbers',     'ods',  'xls',  'xlsx', 'xlsm',  'xlsb' ),
 		'interactive' => array( 'swf', 'key',  'ppt',  'pptx', 'pptm', 'pps',   'ppsx', 'ppsm', 'sldx', 'sldm', 'odp' ),
 		'text'        => array( 'asc', 'csv',  'tsv',  'txt' ),
@@ -1988,13 +1992,11 @@ function wp_check_filetype_and_ext( $file, $filename, $mimes = null ) {
 
 	// Do basic extension validation and MIME mapping
 	$wp_filetype = wp_check_filetype( $filename, $mimes );
-	$ext = $wp_filetype['ext'];
-	$type = $wp_filetype['type'];
+	extract( $wp_filetype );
 
 	// We can't do any further validation without a file to work with
-	if ( ! file_exists( $file ) ) {
+	if ( ! file_exists( $file ) )
 		return compact( 'ext', 'type', 'proper_filename' );
-	}
 
 	// We're able to validate images using GD
 	if ( $type && 0 === strpos( $type, 'image/' ) && function_exists('getimagesize') ) {
@@ -2026,13 +2028,12 @@ function wp_check_filetype_and_ext( $file, $filename, $mimes = null ) {
 				$filename_parts[] = $mime_to_ext[ $imgstats['mime'] ];
 				$new_filename = implode( '.', $filename_parts );
 
-				if ( $new_filename != $filename ) {
+				if ( $new_filename != $filename )
 					$proper_filename = $new_filename; // Mark that it changed
-				}
+
 				// Redefine the extension / MIME
 				$wp_filetype = wp_check_filetype( $new_filename, $mimes );
-				$ext = $wp_filetype['ext'];
-				$type = $wp_filetype['type'];
+				extract( $wp_filetype );
 			}
 		}
 	}
@@ -2094,7 +2095,7 @@ function wp_get_mime_types() {
 	'webm' => 'video/webm',
 	'mkv' => 'video/x-matroska',
 	// Text formats
-	'txt|asc|c|cc|h|srt' => 'text/plain',
+	'txt|asc|c|cc|h' => 'text/plain',
 	'csv' => 'text/csv',
 	'tsv' => 'text/tab-separated-values',
 	'ics' => 'text/calendar',
@@ -2102,7 +2103,6 @@ function wp_get_mime_types() {
 	'css' => 'text/css',
 	'htm|html' => 'text/html',
 	'vtt' => 'text/vtt',
-	'dfxp' => 'application/ttaf+xml',
 	// Audio formats
 	'mp3|m4a|m4b' => 'audio/mpeg',
 	'ra|ram' => 'audio/x-realaudio',
@@ -2151,8 +2151,6 @@ function wp_get_mime_types() {
 	'sldx' => 'application/vnd.openxmlformats-officedocument.presentationml.slide',
 	'sldm' => 'application/vnd.ms-powerpoint.slide.macroEnabled.12',
 	'onetoc|onetoc2|onetmp|onepkg' => 'application/onenote',
-	'oxps' => 'application/oxps',
-	'xps' => 'application/vnd.ms-xpsdocument',
 	// OpenOffice formats
 	'odt' => 'application/vnd.oasis.opendocument.text',
 	'odp' => 'application/vnd.oasis.opendocument.presentation',
@@ -4123,8 +4121,8 @@ function wp_allowed_protocols() {
 
 		/**
 		 * Filter the list of protocols allowed in HTML attributes.
-		 *
-		 * @since 3.0.0
+		 * 
+		 * @since 3.0.0 
 		 *
 		 * @param array $protocols Array of allowed protocols e.g. 'http', 'ftp', 'tel', and more.
 		 */
@@ -4445,24 +4443,4 @@ function mbstring_binary_safe_encoding( $reset = false ) {
  */
 function reset_mbstring_encoding() {
 	mbstring_binary_safe_encoding( true );
-}
-
-/**
- * Alternative to filter_var( $var, FILTER_VALIDATE_BOOLEAN )
- *
- * @since 4.0.0
- *
- * @param mixed $var
- * @return boolean
- */
-function wp_validate_boolean( $var ) {
-	if ( is_bool( $var ) ) {
-		return $var;
-	}
-
-	if ( 'false' === $var ) {
-		return false;
-	}
-
-	return (bool) $var;
 }
