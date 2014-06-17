@@ -41,7 +41,7 @@ function roots_gallery($attr) {
     'icontag'    => '',
     'captiontag' => '',
     'columns'    => 4,
-    'size'       => 'thumbnail',
+    'size'       => '',
     'include'    => '',
     'exclude'    => '',
     'link'       => ''
@@ -81,34 +81,45 @@ function roots_gallery($attr) {
   }
 
   $unique = (get_query_var('page')) ? $instance . '-p' . get_query_var('page'): $instance;
-  $output = '<div class="gallery gallery-' . $id . '-' . $unique . '">';
+  $output = '<div id="carousel-' . $id . '" class="gallery gallery-' . $id . '-' . $unique . ' carousel slide" data-ride="carousel">';
 
+  $output .= '<ol class="carousel-indicators">';
   $i = 0;
-  foreach ($attachments as $id => $attachment) {
+  foreach ($attachments as $aid => $attachment) {
+    $output .= '<li class="' . ( $i === 0 ? 'active': '' ) . '" data-target="#carousel-' . $id . '" data-slide-to="' . $i . '"></li>';
+    $i++;
+  }
+  $output .= '</ol>';
+
+  $output .= '<div class="carousel-inner">';
+  $i = 0;
+  foreach ($attachments as $aid => $attachment) {
     switch($link) {
       case 'file':
-        $image = wp_get_attachment_link($id, $size, false, false);
+        $image = wp_get_attachment_link($aid, $size, false, false);
         break;
       case 'none':
-        $image = wp_get_attachment_image($id, $size, false, array('class' => 'thumbnail img-thumbnail'));
+        $image = wp_get_attachment_image($aid, $size, false, array('class' => ''));
         break;
       default:
-        $image = wp_get_attachment_link($id, $size, true, false);
+        $image = wp_get_attachment_link($aid, $size, true, false);
         break;
     }
-    $output .= ($i % $columns == 0) ? '<div class="row gallery-row">': '';
-    $output .= '<div class="' . $grid .'">' . $image;
+
+    $output .= '<div class="item' . ( $i === 0 ? ' active': '' ) . '">' . $image;
 
     if (trim($attachment->post_excerpt)) {
-      $output .= '<div class="caption hidden">' . wptexturize($attachment->post_excerpt) . '</div>';
+      $output .= '<div class="carousel-caption">' . wptexturize($attachment->post_excerpt) . '</div>';
     }
 
     $output .= '</div>';
     $i++;
-    $output .= ($i % $columns == 0) ? '</div>' : '';
   }
+  $output .= '</div>';
 
-  $output .= ($i % $columns != 0 ) ? '</div>' : '';
+  $output .= '<a class="left carousel-control" href="#carousel-' . $id . '" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>';
+  $output .= '<a class="right carousel-control" href="#carousel-' . $id . '" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>';
+
   $output .= '</div>';
 
   return $output;
