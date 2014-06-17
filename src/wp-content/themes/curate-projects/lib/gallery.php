@@ -86,7 +86,7 @@ function roots_gallery($attr) {
   $output .= '<ol class="carousel-indicators">';
   $i = 0;
   foreach ($attachments as $aid => $attachment) {
-    $output .= '<li class="' . ( $i === 0 ? 'active': '' ) . '" data-target="#carousel-' . $id . '" data-slide-to="' . $i . '"></li>';
+    $output .= '<li class="' . ($i === 0 ? 'active': '') . '" data-target="#carousel-' . $id . '" data-slide-to="' . $i . '"></li>';
     $i++;
   }
   $output .= '</ol>';
@@ -106,10 +106,29 @@ function roots_gallery($attr) {
         break;
     }
 
-    $output .= '<div class="item' . ( $i === 0 ? ' active': '' ) . '">' . $image;
+    $output .= '<div class="item' . ($i === 0 ? ' active': '') . '">' . $image;
 
-    if (trim($attachment->post_excerpt)) {
-      $output .= '<div class="carousel-caption">' . wptexturize($attachment->post_excerpt) . '</div>';
+    $materials = get_field('materials', $aid);
+    $dimensions = get_field('dimensions', $aid);
+
+    if (trim($attachment->post_title) || trim($attachment->post_excerpt) || trim($attachment->post_content) || trim($materials) || trim($dimensions)) {
+      $output .= '<div class="carousel-caption">';
+      if (trim($attachment->post_title)) {
+        $output .= '<h3>' . wptexturize($attachment->post_title) . '</h3>';
+      }
+      if (trim($attachment->post_excerpt)) {
+        $output .= '<p>' . wptexturize($attachment->post_excerpt) . '</p>';
+      }
+      if (trim($attachment->post_content)) {
+        $output .= '<p>' . wptexturize($attachment->post_content) . '</p>';
+      }
+      if (trim($materials)) {
+        $output .= '<p>' . wptexturize($materials) . '</p>';
+      }
+      if (trim($dimensions)) {
+        $output .= '<p>' . wptexturize($dimensions) . '</p>';
+      }
+      $output .= '</div>';
     }
 
     $output .= '</div>';
