@@ -6,7 +6,7 @@ $query = "
     FROM $wpdb->posts, $wpdb->postmeta
     WHERE $wpdb->posts.ID = $wpdb->postmeta.post_id
     AND $wpdb->postmeta.meta_key = 'current_project'
-    AND $wpdb->postmeta.meta_value = 'true'
+    AND $wpdb->postmeta.meta_value = 1
     AND $wpdb->posts.post_status = 'publish'
     AND $wpdb->posts.post_type = 'page'
     AND $wpdb->posts.post_date < NOW()
