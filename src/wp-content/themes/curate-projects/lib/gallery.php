@@ -106,7 +106,7 @@ function roots_gallery($attr) {
         break;
     }
 
-    $output .= '<div class="item' . ($i === 0 ? ' active': '') . '">' . $image;
+    $output .= '<div class="item' . ($i === 0 ? ' active': '') . '" data-image="' . $aid . '" >' . $image;
 
     $materials = get_field('materials', $aid);
     $dimensions = get_field('dimensions', $aid);
@@ -140,6 +140,17 @@ function roots_gallery($attr) {
   $output .= '<a class="right carousel-control" href="#carousel-' . $id . '" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>';
 
   $output .= '</div>';
+
+  $output .= '<script type="text/javascript">' .
+              '$(document).ready(function() {' .
+               '$("a[href^=\'#carousel-image\']").each(function() {' .
+                 'var self = $(this),' .
+                     'imageId = self.attr("href").split("image-")[1],' .
+                     'itemIndex = $("#carousel-' . $id . ' .item[data-image=\'" + imageId + "\']").index();' .
+                 'self.attr("data-target", "#carousel-' . $id . '").attr("data-slide-to", itemIndex);' .
+                '});' .
+              '});' .
+             '</script>';
 
   return $output;
 }
