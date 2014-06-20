@@ -9,7 +9,7 @@ $query = "
     AND $wpdb->postmeta.meta_value = 1
     AND $wpdb->posts.post_status = 'publish'
     AND $wpdb->posts.post_type = 'page'
-    AND $wpdb->posts.post_date < NOW()
+    AND $wpdb->posts.post_date < '".current_time('mysql')."'
     ORDER BY $wpdb->posts.post_date DESC
     LIMIT 1
  ";

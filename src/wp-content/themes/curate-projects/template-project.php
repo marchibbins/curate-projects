@@ -15,7 +15,7 @@ $query = "
     WHERE $wpdb->posts.post_parent = ".get_the_ID()."
     AND $wpdb->posts.post_status = 'publish'
     AND $wpdb->posts.post_type = 'page'
-    AND $wpdb->posts.post_date < NOW()
+    AND $wpdb->posts.post_date < '".current_time('mysql')."'
     ORDER BY $wpdb->posts.menu_order ASC
  ";
 
