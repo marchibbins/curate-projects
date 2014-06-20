@@ -21,6 +21,10 @@ class Roots_Wrapping {
   static $base;
 
   public function __construct($template = 'base.php') {
+    if (self::$base === 'template-temp-home') {
+      $template = self::$base . '.php';
+    }
+
     $this->slug = basename($template, '.php');
     $this->templates = array($template);
 
