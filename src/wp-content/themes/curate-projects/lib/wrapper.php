@@ -21,6 +21,7 @@ class Roots_Wrapping {
   static $base;
 
   public function __construct($template = 'base.php') {
+    // Override wrapper for single temporary template
     if (self::$base === 'template-temp-home') {
       $template = self::$base . '.php';
     }
