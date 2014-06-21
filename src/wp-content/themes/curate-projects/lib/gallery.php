@@ -83,13 +83,15 @@ function roots_gallery($attr) {
   $unique = (get_query_var('page')) ? $instance . '-p' . get_query_var('page'): $instance;
   $output = '<div id="carousel-' . $id . '" class="gallery gallery-' . $id . '-' . $unique . ' carousel slide" data-ride="carousel">';
 
-  $output .= '<ol class="carousel-indicators">';
-  $i = 0;
-  foreach ($attachments as $aid => $attachment) {
-    $output .= '<li class="' . ($i === 0 ? 'active': '') . '" data-target="#carousel-' . $id . '" data-slide-to="' . $i . '"></li>';
-    $i++;
+  if (sizeof($attachments) > 1) {
+    $output .= '<ol class="carousel-indicators">';
+    $i = 0;
+    foreach ($attachments as $aid => $attachment) {
+      $output .= '<li class="' . ($i === 0 ? 'active': '') . '" data-target="#carousel-' . $id . '" data-slide-to="' . $i . '"></li>';
+      $i++;
+    }
+    $output .= '</ol>';
   }
-  $output .= '</ol>';
 
   $output .= '<div class="carousel-inner">';
   $i = 0;
@@ -136,8 +138,10 @@ function roots_gallery($attr) {
   }
   $output .= '</div>';
 
-  $output .= '<a class="left carousel-control" href="#carousel-' . $id . '" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>';
-  $output .= '<a class="right carousel-control" href="#carousel-' . $id . '" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>';
+  if (sizeof($attachments) > 1) {
+    $output .= '<a class="left carousel-control" href="#carousel-' . $id . '" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>';
+    $output .= '<a class="right carousel-control" href="#carousel-' . $id . '" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>';
+  }
 
   $output .= '</div>';
 
