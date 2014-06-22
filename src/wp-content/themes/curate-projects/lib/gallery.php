@@ -96,18 +96,7 @@ function roots_gallery($attr) {
   $output .= '<div class="carousel-inner">';
   $i = 0;
   foreach ($attachments as $aid => $attachment) {
-    switch($link) {
-      case 'file':
-        $image = wp_get_attachment_link($aid, $size, false, false);
-        break;
-      case 'none':
-        $image = wp_get_attachment_image($aid, $size, false, array('class' => ''));
-        break;
-      default:
-        $image = wp_get_attachment_link($aid, $size, true, false);
-        break;
-    }
-
+    $image = wp_get_attachment_image($aid, $size, false, false);
     $output .= '<div class="item' . ($i === 0 ? ' active': '') . '" data-image="' . $aid . '" >' . $image;
 
     $materials = get_field('materials', $aid);
