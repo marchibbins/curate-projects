@@ -24,21 +24,21 @@ $query = "
 
 <?php if ($child_pages): ?>
 
-  <ul class="nav nav-pills">
-    <?php foreach ($child_pages as $key => $post): ?>
-      <li class="<?= first($child_pages, $key) ? 'active' : ''; ?>">
-        <a href="#<?= $post->post_name ?>" data-toggle="tab"><?= $post->post_title; ?></a>
-      </li>
-    <?php endforeach; ?>
-  </ul>
+  <?php foreach ($child_pages as $key => $post): ?>
+    <button class="btn btn-primary" data-toggle="modal" data-target="#<?= $post->post_name; ?>"><?= $post->post_title; ?></button>
+  <?php endforeach; ?>
 
   <?php global $post; ?>
-  <div class="tab-content">
-    <?php foreach ($child_pages as $key => $post): ?>
-      <?php setup_postdata($post); ?>
-      <div class="tab-pane <?= first($child_pages, $key) ? 'active' : ''; ?>" id="<?= $post->post_name ?>">
-        <?php get_template_part('templates/content', 'partial'); ?>
+  <?php foreach ($child_pages as $key => $post): ?>
+    <?php setup_postdata($post); ?>
+    <div class="modal sub-page" id="<?= $post->post_name; ?>" tabindex="-1" role="dialog" aria-labelledby="<?= $post->post_name; ?>-label" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <?php get_template_part('templates/content', 'partial'); ?>
+          </div>
+        </div>
       </div>
-    <?php endforeach; ?>
-  </div>
+    </div>
+  <?php endforeach; ?>
  <?php endif; ?>
