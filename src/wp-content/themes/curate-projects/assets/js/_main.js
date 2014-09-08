@@ -26,7 +26,7 @@ var Roots = {
       $('.owl-carousel').owlCarousel({
         loop: true,
         autoWidth: true
-        items: 2
+        items: 1
       });
 
     }

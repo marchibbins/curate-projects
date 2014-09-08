@@ -27,6 +27,22 @@ body {
   top: -20px;
   background: rgba(0,0,0,0.75);
 }
-.item:hover .caption {
-  background: rgba(0,0,0,1);
+
+.gallery-header {
+  background: url(http://lorempixel.com/1000/200/abstract/1/);
+  background-size: cover;
+  background-position: 50% 50%;
+  height: 200px;
+  margin: 0 -15px;
+}
+
+.gallery-header:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 200px;
+  width: 100%;
+  background: url(../img/raster.png) repeat;
 }

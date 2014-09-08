@@ -1,8 +1,14 @@
 <?php
+$featured = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'large' );
 $media = get_attached_media( 'image' );
 ?>
 
-<? if($media):?>
+<? if(!empty($featured)):?>
+
+<div class="gallery-header" style="background-image:url('<?= $featured[0] ?>')"></div>
+
+<? elseif($media):?>
+
 <div class="owl-carousel-container">
   <ul class="owl-carousel">
   <? foreach ( $media as $image ):
