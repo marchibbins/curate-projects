@@ -1,3 +1,4 @@
+<?php get_template_part('templates/page', 'carousel'); ?>
 
 <style type="text/css" media="screen">
     .gallery-header {
