@@ -1,7 +1,5 @@
 
 <div class="container">
-    <?php get_template_part('index'); ?>
-
     <?php
     $query = "
         SELECT $wpdb->posts.*
@@ -26,4 +24,7 @@
             <?php get_template_part('templates/content', get_post_format()); ?>
         <?php endforeach; ?>
     <?php endif; ?>
+
+    <hr>
+    <?php get_template_part('index'); ?>
 </div>
