@@ -81,7 +81,7 @@ function roots_gallery($attr) {
   }
 
   $unique = (get_query_var('page')) ? $instance . '-p' . get_query_var('page'): $instance;
-  $output = '<div id="carousel-' . $id . '" class="gallery gallery-' . $id . '-' . $unique . ' carousel slide" data-interval="false">';
+  $output = '<div id="carousel-' . $id . '" class="gallery gallery-' . $id . '-' . $unique . ' carousel slide" data-ride="carousel">';
 
   if (sizeof($attachments) > 1) {
     $output .= '<ol class="carousel-indicators">';
