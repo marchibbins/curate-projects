@@ -80,10 +80,6 @@ function roots_nav_menu_args($args = '') {
     $roots_nav_menu_args['items_wrap'] = '<ul class="%2$s">%3$s</ul>';
   }
 
-  if (current_theme_supports('bootstrap-top-navbar') && !$args['depth']) {
-    $roots_nav_menu_args['depth'] = 2;
-  }
-
   if (!$args['walker']) {
     $roots_nav_menu_args['walker'] = new Roots_Nav_Walker();
   }
