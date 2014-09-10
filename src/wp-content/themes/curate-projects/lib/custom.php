@@ -13,3 +13,5 @@ function last(&$array, $key) {
     end($array);
     return $key === key($array);
 }
+
+add_filter('show_admin_bar', '__return_false');
