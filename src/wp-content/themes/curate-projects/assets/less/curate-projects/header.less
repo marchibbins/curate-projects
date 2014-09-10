@@ -37,12 +37,26 @@
 
 .navbar-brand {
     font-size: 54px;
-    background-size: 64px;
 }
 
-.navbar > .container {
-    background: transparent url(../img/logo-gray.png) right 35px no-repeat;
-    background-size: 145px;
+@media (min-width: @screen-sm-min) {
+    .navbar-header:after {
+        background: transparent url(../img/logo.png) right 35px no-repeat;
+        background-size: 145px;
+        content: '';
+        display: block;
+        height: 140px;
+        margin-right: -375px;
+        opacity: 0.5;
+        position: fixed;
+        right: 50%;
+        top: 0;
+        width: 145px;
+
+        @media (min-width: @screen-md-min) {
+            margin-right: -484px;
+        }
+    }
 }
 
 .site-nav {
