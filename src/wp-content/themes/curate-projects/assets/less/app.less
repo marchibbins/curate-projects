@@ -16,41 +16,46 @@
 
 
 /* ==========================================================================
-   Content
-   ========================================================================== */
+    Content
+    ========================================================================== */
 
 .content { }
 
 
 
 /* ==========================================================================
-   Primary Content
-   ========================================================================== */
+    Primary Content
+    ========================================================================== */
 
 .main {
 
-   .lead {
+    .lead {
         font-size: 1.2em;
         line-height: 1.8;
         margin-bottom: 30px;
-   }
 
-   @media (min-width: @screen-md-min) {
+    }
 
-     .columns {
-          text-align: justify;
-          -webkit-column-count: 2;
-             -moz-column-count: 2;
-                  column-count: 2;
-          -webkit-column-gap: 30px;
-             -moz-column-gap: 30px;
-                  column-gap: 30px;
-          -webkit-column-rule: 1px solid #e7e7e7;
-             -moz-column-rule: 1px solid #e7e7e7;
-                  column-rule: 1px solid #e7e7e7;
-     }
+    @media (min-width: @screen-md-min) {
 
-   }
+        .columns {
+            text-align: justify;
+            -webkit-column-count: 2;
+               -moz-column-count: 2;
+                    column-count: 2;
+            -webkit-column-gap: 30px;
+               -moz-column-gap: 30px;
+                    column-gap: 30px;
+            -webkit-column-rule: 1px solid #e7e7e7;
+               -moz-column-rule: 1px solid #e7e7e7;
+                    column-rule: 1px solid #e7e7e7;
+        }
+
+    }
+
+    img {
+        margin-bottom: @line-height-computed;
+    }
 
 }
 
@@ -66,16 +71,16 @@
 
 
 /* ==========================================================================
-   Sidebar
-   ========================================================================== */
+    Sidebar
+    ========================================================================== */
 
 .sidebar { }
 
 
 
 /* ==========================================================================
-   Posts
-   ========================================================================== */
+    Posts
+    ========================================================================== */
 
 .hentry header { }
 .hentry time { }
@@ -86,9 +91,9 @@
 
 
 /* ==========================================================================
-   WordPress Generated Classes
-   See: http://codex.wordpress.org/CSS#WordPress_Generated_Classes
-   ========================================================================== */
+    WordPress Generated Classes
+    See: http://codex.wordpress.org/CSS#WordPress_Generated_Classes
+    ========================================================================== */
 
 .aligncenter { display: block; margin: 0 auto; }
 .alignleft { float: left; }
@@ -98,8 +103,8 @@ figure.alignnone { margin-left: 0; margin-right: 0; }
 
 
 /* ==========================================================================
-   Media Queries
-   ========================================================================== */
+     Media Queries
+     ========================================================================== */
 
 @media (min-width: @screen-sm-min) { }
 
