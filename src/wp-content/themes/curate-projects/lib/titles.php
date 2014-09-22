@@ -31,6 +31,9 @@ function roots_title() {
     return sprintf(__('Search Results for %s', 'roots'), get_search_query());
   } elseif (is_404()) {
     return __('Not Found', 'roots');
+  } elseif (sizeof(get_post_ancestors(get_the_ID()))) {
+    $parent = get_post_ancestors(get_the_ID());
+    return get_the_title($parent[0]) . ' &mdash; ' . get_the_title();
   } else {
     return get_the_title();
   }
