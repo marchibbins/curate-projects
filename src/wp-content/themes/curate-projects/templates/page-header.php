@@ -8,7 +8,7 @@
 
     <?php if ($child_pages): ?>
         <nav>
-            <ul class="nav nav-pills child-page-nav">
+            <ul class="nav child-page-nav">
                 <?php foreach ($child_pages as $key => $child_page): ?>
                     <li class="<?= get_the_ID() == $child_page->ID ? 'active' : ''; ?>">
                         <a href="<?= get_permalink($child_page->post_parent) . $child_page->post_name ?>"><?= $child_page->post_title; ?></a>
