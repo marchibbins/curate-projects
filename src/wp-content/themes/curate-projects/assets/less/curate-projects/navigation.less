@@ -3,6 +3,52 @@
    Navigation
    ========================================================================== */
 
+.site-nav {
+    position: relative;
+    z-index: @zindex-navbar-fixed;
+    top: -20px;
+
+    > li {
+        margin-right: @navbar-padding-horizontal;
+    }
+
+    > li > a {
+        color: @navbar-default-link-color;
+
+        &:hover,
+        &:focus {
+            color: @navbar-default-link-hover-color;
+            background-color: @navbar-default-link-hover-bg;
+        }
+    }
+
+    > .active > a {
+        font-weight: 700;
+
+        &,
+        &:hover,
+        &:focus {
+            color: @navbar-default-link-active-color;
+            background-color: @navbar-default-link-active-bg;
+            text-decoration: none;
+            cursor: default;
+        }
+    }
+
+    > .disabled > a {
+        &,
+        &:hover,
+        &:focus {
+            color: @navbar-default-link-disabled-color;
+            background-color: @navbar-default-link-disabled-bg;
+        }
+    }
+
+    @media (min-width: @screen-sm-min) {
+        .list-inline();
+    }
+}
+
 .child-page-nav {
     margin-top: @line-height-computed*2;
     .site-nav();
