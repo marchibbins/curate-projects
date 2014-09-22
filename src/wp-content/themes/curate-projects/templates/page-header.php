@@ -15,12 +15,14 @@
     ?>
 
     <?php if ($child_pages): ?>
-        <ul class="nav nav-pills">
-            <?php foreach ($child_pages as $key => $child_page): ?>
-                <li class="<?= first($child_pages, $key) ? 'active' : ''; ?>">
-                    <a href="#<?= $child_page->post_name ?>" data-toggle="tab"><?= $child_page->post_title; ?></a>
-                </li>
-            <?php endforeach; ?>
-        </ul>
+        <nav>
+            <ul class="nav nav-pills child-page-nav">
+                <?php foreach ($child_pages as $key => $child_page): ?>
+                    <li class="<?= first($child_pages, $key) ? 'active' : ''; ?>">
+                        <a href="<?= get_permalink() . $child_page->post_name ?>"><?= $child_page->post_title; ?></a>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        </nav>
     <?php endif; ?>
 </div>
