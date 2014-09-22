@@ -26,6 +26,28 @@
 @navbar-default-brand-hover-color: #555;
 
 
+/* ==========================================================================
+   Logo
+   ========================================================================== */
+
+.logo() {
+    background: transparent url(../img/logo.png) right 35px no-repeat;
+    background-size: 110px;
+    content: '';
+    display: block;
+    height: 115px;
+    margin-right: -375px;
+    opacity: 0.5;
+    position: fixed;
+    right: 50%;
+    top: 0;
+    width: 110px;
+
+    @media (min-width: @screen-md-min) {
+        margin-right: -484px;
+    }
+}
+
 
 /* ==========================================================================
    Header
@@ -37,7 +59,25 @@
 
 .navbar-brand {
     font-size: 30px;
+    position: relative;
     text-transform: uppercase;
+    padding-right: 56px;
+
+    &:after {
+        .logo();
+        background-size: 38px;
+        height: 62px;
+        left: 100%;
+        margin-left: -46px;
+        position: absolute;
+        right: auto;
+        top: 8px;
+        width: 38px;
+
+        @media (min-width: @screen-sm-min) {
+            display: none;
+        }
+    }
 
     @media (min-width: @screen-xs-min) {
         font-size: 36px;
@@ -50,20 +90,6 @@
 
 @media (min-width: @screen-sm-min) {
     .navbar-header:after {
-        background: transparent url(../img/logo.png) right 35px no-repeat;
-        background-size: 110px;
-        content: '';
-        display: block;
-        height: 115px;
-        margin-right: -375px;
-        opacity: 0.5;
-        position: fixed;
-        right: 50%;
-        top: 0;
-        width: 110px;
-
-        @media (min-width: @screen-md-min) {
-            margin-right: -484px;
-        }
+        .logo();
     }
 }
