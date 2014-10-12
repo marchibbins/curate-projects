@@ -1,2 +1,3 @@
 src/wp-config.php
 src/wp-content/uploads
+.vagrant
