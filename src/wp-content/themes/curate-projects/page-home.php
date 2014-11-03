@@ -11,8 +11,9 @@ $current_project = new WP_Query(array(
 );
 ?>
 
-<div class="container">
   <?php while($current_project->have_posts()): $current_project->the_post(); ?>
+      <?php get_template_part('templates/page', 'gallery-header'); ?>
+<div class="container">
       <?php get_template_part('templates/content', get_post_format()); ?>
   <?php endwhile; ?>
 <?php
