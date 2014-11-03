@@ -1,8 +1,11 @@
-
 <div class="container">
+    <div class="row">
     <?php while (have_posts()) : the_post(); ?>
-        <?php get_template_part('templates/content', get_post_format()); ?>
+      <div class="col-sm-6">
+        <?php get_template_part('templates/content', 'tease-'.$post->post_type); ?>
+      </div>
     <?php endwhile; ?>
+    </div>
 
     <?php if ($wp_query->max_num_pages > 1) : ?>
         <nav class="post-nav">
