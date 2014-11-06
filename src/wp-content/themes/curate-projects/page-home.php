@@ -14,7 +14,7 @@ $current_project = new WP_Query(array(
   <?php while($current_project->have_posts()): $current_project->the_post(); ?>
       <?php get_template_part('templates/page', 'gallery-header'); ?>
 <div class="container">
-      <?php get_template_part('templates/content', get_post_format()); ?>
+      <?php get_template_part('templates/content', 'tease-project'); ?>
   <?php endwhile; ?>
 <?php
 // Manually query for posts because this is post_type=page.

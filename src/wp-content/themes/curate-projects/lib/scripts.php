@@ -12,7 +12,7 @@
  */
 function roots_scripts() {
   wp_enqueue_style('owl-carousel', get_template_directory_uri() . '/assets/js/vendor/owl-carousel/assets/owl.carousel.css', false);
-  wp_enqueue_style('roots_main', get_template_directory_uri() . '/assets/css/main.min.css', false, 'b2d0341fc784f9b89a549a69e225db94');
+  wp_enqueue_style('roots_main', get_template_directory_uri() . '/assets/css/main.min.css', false, '4b883e331476b1e21e3abd53e8b7dfc8');
 
   // jQuery is loaded using the same method from HTML5 Boilerplate:
   // Grab Google CDN's latest jQuery with a protocol relative URL; fallback to local if offline
@@ -29,7 +29,7 @@ function roots_scripts() {
 
   wp_register_script('owl-carousel', get_template_directory_uri() . '/assets/js/vendor/owl-carousel/owl.carousel.min.js', array(), null, false);
   wp_register_script('modernizr', get_template_directory_uri() . '/assets/js/vendor/modernizr-2.7.0.min.js', array(), null, false);
-  wp_register_script('roots_scripts', get_template_directory_uri() . '/assets/js/scripts.min.js', array(), '54a470f2689ff984bdfc6cba2317b19a', true);
+  wp_register_script('roots_scripts', get_template_directory_uri() . '/assets/js/scripts.min.js', array(), 'b98db97c7380f99cf2255c93977675a2', true);
   wp_enqueue_script('modernizr');
   wp_enqueue_script('jquery');
   wp_enqueue_script('owl-carousel');

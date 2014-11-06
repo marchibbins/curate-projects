@@ -5,12 +5,22 @@ body {
 .owl-carousel-container {
   height: 400px;
   margin: 0 -15px;
+  overflow: hidden;
+}
+
+.owl-carousel {
+  width: 150%;
+  display: block;
 }
 
 .owl-carousel, .owl-carousel .item {
   list-style: none;
   padding: 0;
   margin: 5px;
+}
+
+.owl-carousel .item {
+  float: left;
 }
 
 .owl-carousel .item img {

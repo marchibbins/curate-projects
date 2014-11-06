@@ -14,8 +14,10 @@
             <? foreach ( $media as $image ):
                 $src = wp_get_attachment_image_src($image->ID, 'large');
                 $caption = get_post_field('post_excerpt', $image->ID);
+                $ratio = 400/$src[2];
+                $width = round($src[1]*$ratio);
             ?>
-                <li class="item">
+              <li style="width:<?=$width?>px" class="item">
                   <a href="<?=$src[0]?>" title="<?= $caption?>" rel="lightbox-0">
                     <img src="<?=$src[0] ?>" alt="<?= $caption?>">
                   </a>

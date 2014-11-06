@@ -72,7 +72,7 @@ module.exports = function(grunt) {
           'assets/less/bootstrap/*.less',
           'assets/less/curate-projects/*.less'
         ],
-        tasks: ['less', 'version']
+        tasks: ['less', 'version', 'uglify']
       },
       js: {
         files: [

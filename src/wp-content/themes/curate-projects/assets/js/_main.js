@@ -24,9 +24,12 @@ var Roots = {
     init: function() {
 
       $('.owl-carousel').owlCarousel({
-        loop: true,
-        autoWidth: true
-        items: 1
+        autoWidth: true,
+        items: 7,
+        margin: 10,
+        stagePadding: 50,
+        freeDrag: false,
+        pullDrag: false
       });
 
     }
