@@ -1,0 +1,23 @@
+.Toggle {
+  display: block;
+  width:30px;
+  height: var(--Toggle-bar-height);
+  background-color:#111;
+  border-radius:5px;
+  position:absolute;
+}
+
+.Toggle:after, .Toggle:before {
+  content: '';
+  width: 100%;
+  height: var(--Toggle-bar-height);
+  background-color:#111;
+  border-radius:5px;
+  display: block;
+  margin-top: var(--Toggle-bar-spacing);
+}
+
+.Toggle:before {
+  margin-top: calc(var(--Toggle-bar-height) + var(--Toggle-bar-spacing));
+}
+

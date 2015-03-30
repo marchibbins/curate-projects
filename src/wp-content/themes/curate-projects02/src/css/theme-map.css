@@ -1,0 +1,77 @@
+/**
+ * base
+ */
+
+:root {
+  --background-base: var(--color-white);
+  --color-base: var(--color-medium-gray);
+  --color-logo: var(--color-medium-gray);
+  --font-base: var(--font-size)/var(--line-height) var(--font-family-serif);
+  --link-color-base: var(--color-medium-gray);
+  --link-color-hover-base: var(--color-dark-orange);
+}
+
+/**
+ * components-arrange
+ */
+
+:root {
+  --gutter-size-Arrange: var(--space-small-px);
+}
+
+/**
+ * components-grid
+ */
+
+:root {
+  --gutter-size-Grid: var(--space-large-px);
+}
+
+/**
+ * Wrapper
+ */
+:root {
+  --Wrapper-logo-block-height: calc(var(--line-height-pixels)*4px);
+  --Wrapper-left-padding: var(--space-large-px);
+
+  --Wrapper-left-width-sm: 200px;
+
+}
+
+/**
+ * Logo
+ */
+
+:root {
+  --Logo-width: 38px;
+  --Logo-font-family: var(--font-family-sans);
+  --Logo-ratio: 145/200;
+  --Logo-height: calc(var(--Logo-width)*var(--Logo-ratio));
+}
+
+/**
+ * Horizontal scroll table.
+ */
+
+:root {
+  --HorizontalTable-height: calc(var(--line-height-pixels)*15px);
+  --HorizontalTable-height-img: calc(var(--line-height-pixels)*18px);
+  --HorizontalTable-min-width: calc(var(--line-height-pixels)*15px);
+}
+
+/**
+ * Nav
+ */
+
+:root {
+  --Nav-padding-left: var(--space-large-px);
+}
+
+/**
+ * Toggle
+ */
+
+:root {
+  --Toggle-bar-height: 5px;
+  --Toggle-bar-spacing: 4px;
+}

@@ -1,0 +1,59 @@
+{% block html_head_container %}
+
+{% include 'html-header.twig' %}
+  {% block head %}
+  {% endblock %}
+  </head>
+{% endblock %}
+
+  <body class="{{body_class}}" data-template="base.twig">
+    <div class="Wrapper">
+      <div class="Wrapper-logo">
+        <header class="Logo" role="banner">
+          <h1>
+          	<a href="/" rel="home">{{site.name}}</a>
+          </h1>
+        </header>
+      </div>
+      <div class="Wrapper-left" >
+        <div class="Wrapper-left-container">
+        	{% block header %}
+        	<nav class="Nav Nav--primary" role="navigation">
+        	  <ul>
+        	    {% for item in menu.get_items %}
+        	      <li class="nav-item {{item.classes | join(' ')}}">
+        	        <a class="nav-link" href="{{item.get_link}}">{{item.title}}</a>
+        	          {% if item.get_children %}
+        	          <ul class="nav nav-drop">
+        	            {% for child in item.get_children %}
+        	            <li class="nav-drop-item">
+        	              <a class="nav-link" href="{{child.get_link}}">{{child.title}}</a>
+        	            </li>
+        	            {% endfor %}
+        	          </ul>
+        	          {% endif %}
+        	      </li>
+        	    {% endfor %}
+        	  </ul>
+        	</nav>
+           {% endblock %}
+        </div>
+      </div>
+      <div class="Wrapper-toggle js-toggle" data-toggle-target=".Wrapper-left">
+        <a class="Toggle" href=""></a>
+      </div>
+
+      <section class="Wrapper-right" id="content" role="main">
+        <div class="Wrapper-right-container">
+          {% block content %}
+        	Sorry, no content
+          {% endblock %}
+        </div>
+      </section>
+    </div><!-- /.wrapper -->
+
+    <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="{{site.theme.link}}/js/site.js"></script>
+    {{ fn('wp_footer') }}
+  </body>
+</html>

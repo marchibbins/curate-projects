@@ -1,0 +1,88 @@
+/*
+ * Theme Name: My Timber Starter Theme
+ * Description: Starter Theme to use with Timber
+ * Author: Upstatement and YOU!
+*/
+
+/*
+ * suitcss-base and other suit components @import'ed here. rework (rework-npm)
+ * then inlines these components at the build stage. Each suitcss-{plugin} must
+ * be npm install'ed
+ */
+@import "./theme.css";
+@import "./theme-map.css";
+@import "suitcss-base";
+@import "suitcss-components-grid";
+@import "suitcss-components-arrange";
+@import "suitcss-utils-size";
+@import "suitcss-utils-display";
+
+@import "./module/Wrapper.css";
+@import "./module/Logo.css";
+@import "./module/Toggle.css";
+@import "./module/Nav.css";
+@import "./module/HorizontalTable.css";
+
+@font-face {
+  font-family: 'bitstream_vera_serifroman';
+  src: url('assets/fonts/bitstream-vera-serif-roman/VeraSerif-webfont.eot');
+  src: url('assets/fonts/bitstream-vera-serif-roman/VeraSerif-webfont.eot?#iefix') format('embedded-opentype'),
+  url('assets/fonts/bitstream-vera-serif-roman/VeraSerif-webfont.woff') format('woff'),
+  url('assets/fonts/bitstream-vera-serif-roman/VeraSerif-webfont.ttf') format('truetype'),
+  url('assets/fonts/bitstream-vera-serif-roman/VeraSerif-webfont.svg#bitstream_vera_serifroman') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  color: var(--color-base);
+  font: var(--font-base); /* 14px/28 */
+  overflow-y: hidden;
+}
+
+/* Baseline.it */
+body.admin-bar:after {
+  top: 4px !important;
+  position: static !important;
+}
+@media(max-width:782px){
+  body.admin-bar:after {
+    top: 18px !important;
+  }
+}
+
+h1 {
+  font-size: 2.291rem; /* 36.651px */
+  font-weight: 400;
+}
+
+h2 {
+  font-size: 1.416rem; /* 22.652px */
+  line-height: 1.75rem;
+  margin-bottom: 1.75rem;
+  font-weight: 400;
+}
+
+.YScroll {
+  box-sizing: border-box;
+  overflow-y: scroll;
+  max-height: 100%;
+}
+
+.Image {
+  padding: 0 20px;
+  border-right:  1px solid #DDDDDD;
+}
+
+.Image > img {
+  height: 100%;
+  width: auto;
+}
+
+.Project-nav {
+  max-width: 400px;
+}

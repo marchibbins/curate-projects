@@ -1,0 +1,23 @@
+.HorizontalTable {
+  display: table;
+  table-layout:fixed;
+}
+
+.HorizontalTable-cell {
+  display: table-cell;
+  vertical-align: top;
+}
+
+.HorizontalTable-cell > * {
+  height: var(--HorizontalTable-height);
+}
+
+.HorizontalTable-cell--img  > * {
+  height: var(--HorizontalTable-height-img);
+  margin-top: calc(0-(var(--HorizontalTable-height-img)-var(--HorizontalTable-height)));
+}
+
+.HorizontalTable-cell--article  .article {
+  width: var(--HorizontalTable-min-width);
+  max-height: var(--HorizontalTable-height);
+}

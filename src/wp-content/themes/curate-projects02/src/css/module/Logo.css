@@ -1,0 +1,24 @@
+.Logo {
+  font-family: var(--Logo-font-family);
+}
+
+.Logo a {
+  text-transform: uppercase;
+  padding-right: 56px;
+  text-decoration: none;
+  color: var(--color-logo);
+  position: relative;
+}
+
+.Logo a:after {
+  background: transparent url(assets/img/logo.png) 0 0 no-repeat;
+  background-size: var(--Logo-width);
+  content: '';
+  display: block;
+  height: var(--Logo-height);
+  opacity: 1;
+  position: absolute;
+  top: 12px;
+  right: 10px;
+  width: var(--Logo-width);
+}

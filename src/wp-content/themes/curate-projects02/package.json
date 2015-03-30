@@ -1,0 +1,29 @@
+{
+  "name": "suitcss-gulp-base",
+  "version": "0.0.1",
+  "description": "Build workflow (using gulp) for including suitcss components in your css. Uses rework+plugins and autoprefixer",
+  "main": "",
+  "author": "Gareth Foote",
+  "license": "LGPL-3.0+",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:garethfoote/suitcss-gulp-base.git"
+  },
+  "devDependencies": {
+    "gulp-notify": "^2.2.0",
+    "gulp": "^3.8.11",
+    "gulp-autoprefixer": "^2.1.0",
+    "gulp-rework": "^1.0.3",
+    "gulp-rename": "^1.2.0",
+    "rework-suit": "^4.0.0",
+    "rework-plugin-colors": "^1.0.3"
+  },
+  "dependencies": {
+    "suitcss-base": "^0.8.0",
+    "suitcss-utils-size": "^0.7.2",
+    "suitcss-components-grid": "^2.0.2",
+    "suitcss-utils-display": "^0.4.2",
+    "suitcss-components-arrange": "^0.6.2",
+    "rework-rem-fallback": "^1.0.0"
+  }
+}
