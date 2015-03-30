@@ -1,5 +1,9 @@
 <?php
 
+require_once 'custom-fields/project.php';
+require_once 'custom-fields/extra-image.php';
+require_once 'custom-post-type/project.php';
+
 if ( ! class_exists( 'Timber' ) ) {
   function admin_notices() {
     echo '<div class="error"><p>Timber not activated. Make sure you activate the plugin in <a href="' . esc_url( admin_url( 'plugins.php#timber' ) ) . '">' . esc_url( admin_url( 'plugins.php' ) ) . '</a></p></div>';
