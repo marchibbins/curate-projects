@@ -78,6 +78,10 @@
  * Toggle
  */
 
+/**
+ * Tease
+ */
+
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 
 /**
@@ -1757,17 +1761,18 @@ ul {
   margin-top: 9px;
 }
 
-.Nav li > a {
+.Nav-item > a {
   color: #222;
   text-decoration: none;
 }
 
-.Nav li > a:hover {
+.Nav-item.is-active > a,
+.Nav-item > a:hover {
   color: #f4900c;
   text-decoration: none;
 }
 
-.Nav--primary li > ul {
+.Nav--primary .Nav-item ul {
   padding-left: 20px;
 }
 
@@ -1781,18 +1786,20 @@ ul {
   vertical-align: top;
 }
 
-.HorizontalTable-cell > * {
+.HorizontalTable-cell-container {
   height: 420px;
 }
 
-.HorizontalTable-cell--img  > * {
-  height: 504px;
-  margin-top: -84px;
-}
-
-.HorizontalTable-cell--article  .article {
+.HorizontalTable-cell-container {
   width: 420px;
   max-height: 420px;
+}
+
+.HorizontalTable-cell-container--img {
+  height: 504px;
+  margin-top: -84px;
+  width: auto;
+  max-height: none;
 }
 
 @font-face {
@@ -1852,13 +1859,15 @@ h2 {
 
 .YScroll {
   box-sizing: border-box;
-  overflow-y: scroll;
+  overflow-x: none;
+  overflow-y: auto;
   max-height: 100%;
 }
 
 .Image {
-  padding: 0 20px;
   border-right: 1px solid #DDDDDD;
+  height: 100%;
+  padding: 0 20px;
 }
 
 .Image > img {
@@ -1866,6 +1875,17 @@ h2 {
   width: auto;
 }
 
+.Article {
+  padding: 0 40px 0 0;
+}
+
 .Project-nav {
   max-width: 400px;
+}
+
+.Tease img {
+  max-height: 200px;
+  float: left;
+  padding-right: 10px;
+  padding-bottom: 10px;
 }

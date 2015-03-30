@@ -69,13 +69,15 @@ h2 {
 
 .YScroll {
   box-sizing: border-box;
-  overflow-y: scroll;
+  overflow-x: none;
+  overflow-y: auto;
   max-height: 100%;
 }
 
 .Image {
+  border-right: 1px solid #DDDDDD;
+  height: 100%;
   padding: 0 20px;
-  border-right:  1px solid #DDDDDD;
 }
 
 .Image > img {
@@ -83,6 +85,21 @@ h2 {
   width: auto;
 }
 
+.Article {
+  padding: 0 40px 0 0;
+}
+
 .Project-nav {
   max-width: 400px;
+}
+
+.Tease {
+
+}
+
+.Tease img {
+  max-height: 200px;
+  float: left;
+  padding-right: var(--Tease-image-padding);
+  padding-bottom: var(--Tease-image-padding);
 }

@@ -19,16 +19,18 @@
     <div class="HorizontalTable">
 
       <div class="HorizontalTable-cell HorizontalTable-cell--article">
-        <div class="YScroll">
-          <div class="article">
-            <div>
-              {{post.content}}
+        <div class="HorizontalTable-cell-container">
+          <div class="YScroll">
+            <div class="article">
+              <div>
+                {{post.content}}
+              </div>
+              {% for page in post.children('page') %}
+              <div class="u-hidden">
+                {{page.content}}
+              </div>
+              {% endfor %}
             </div>
-            {% for page in post.children('page') %}
-            <div class="u-hidden">
-              {{page.content}}
-            </div>
-            {% endfor %}
           </div>
         </div>
       </div>
@@ -36,8 +38,10 @@
 
       {% if post.get_field('page_image') %}
       <div class="HorizontalTable-cell HorizontalTable-cell--img">
-        <div class="Image">
-          <img src="{{TimberImage(post.get_field('page_image')).src('large')}}" alt="">
+        <div class="HorizontalTable-cell-container HorizontalTable-cell-container--img">
+          <div class="Image">
+            <img src="{{TimberImage(post.get_field('page_image')).src('large')}}" alt="">
+          </div>
         </div>
       </div>
       {% endif %}

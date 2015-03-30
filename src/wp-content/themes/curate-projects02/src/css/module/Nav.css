@@ -1,12 +1,13 @@
-.Nav li > a {
+.Nav-item > a {
   color: var(--link-color-base);
   text-decoration: none;
 }
-.Nav li > a:hover {
+
+.Nav-item.is-active > a,
+.Nav-item > a:hover {
   color: var(--link-color-hover-base);
   text-decoration: none;
 }
-
-.Nav--primary li > ul {
+.Nav--primary .Nav-item ul {
   padding-left: var(--Nav-padding-left);
 }

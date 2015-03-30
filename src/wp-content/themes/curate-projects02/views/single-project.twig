@@ -9,29 +9,34 @@
        <nav class="Nav Project-nav">
          <ul class="Arrange">
            {% for page in post.get_field('sub_pages') %}
-            <li class="Arrange-sizeFit"><a href="#{{loop.index}}">{{page.sub_page_title}}</a></li>
+            <li class="Nav-item Arrange-sizeFit"><a href="#{{loop.index}}">{{page.sub_page_title}}</a></li>
            {% endfor %}
          </ul>
        </nav>
     </header>
 
     <div class="HorizontalTable">
+
       <div class="HorizontalTable-cell HorizontalTable-cell--article">
-        <div class="YScroll">
-          <div class="article">
-            {% for page in post.get_field('sub_pages') %}
-            <div class="{% if loop.first != true %}u-hidden{% endif %}">
-              {{page.sub_page_content}}
-            </div>
-            {% endfor %}
-          </div>
+        <div class="HorizontalTable-cell-container">
+        	<div class="YScroll">
+        	  <div class="Article">
+        	    {% for page in post.get_field('sub_pages') %}
+        	    <div class="{% if loop.first != true %}u-hidden{% endif %}">
+        	      {{page.sub_page_content}}
+        	    </div>
+        	    {% endfor %}
+        	  </div>
+        	</div>
         </div>
       </div>
 
       {% for img in post.get_field('gallery') %}
       <div class="HorizontalTable-cell HorizontalTable-cell--img">
-        <div class="Image">
-          <img src="{{TimberImage(img).src('medium')}}" alt="">
+        <div class="HorizontalTable-cell-container HorizontalTable-cell-container--img">
+        	<div class="Image">
+        	  <img src="{{TimberImage(img).src('medium')}}" alt="">
+        	</div>
         </div>
       </div>
       {% endfor %}
