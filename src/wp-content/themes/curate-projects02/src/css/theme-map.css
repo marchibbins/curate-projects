@@ -25,6 +25,7 @@
 
 :root {
   --gutter-size-Grid: var(--space-large-px);
+  --gutter-size-Grid: var(--space-large-px);
 }
 
 /**
@@ -32,10 +33,13 @@
  */
 :root {
   --Wrapper-logo-block-height: calc(var(--line-height-pixels)*4px);
+  --Wrapper-logo-block-height-sm: calc(var(--line-height-pixels)*3px);
   --Wrapper-left-padding: var(--space-large-px);
-
   --Wrapper-left-width-sm: 200px;
+  --Wrapper-left-width-total-sm: calc(var(--Wrapper-left-width-sm)+var(--Wrapper-left-padding));
+  --Wrapper-middle-width-total-sm: 420px;
 
+  --Wrapper-height: var(--app-height);
 }
 
 /**
@@ -82,4 +86,12 @@
 
 :root {
   --Tease-image-padding: var(--space-small-px);
+}
+
+/**
+ * Content
+ */
+
+:root {
+  --Content-sm-padding: var(--space-small-px);
 }

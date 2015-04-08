@@ -22,6 +22,7 @@
 @import "./module/Toggle.css";
 @import "./module/Nav.css";
 @import "./module/HorizontalTable.css";
+@import "./module/Project.css";
 
 @font-face {
   font-family: 'bitstream_vera_serifroman';
@@ -73,6 +74,28 @@ h2 {
   overflow-y: auto;
   max-height: 100%;
 }
+/* Let's get this party started */
+/* line 135, views/app.scss */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+opacity: 0.5; }
+
+/* Track */
+/* line 141, views/app.scss */
+::-webkit-scrollbar-track {
+  height: 95%;
+padding: 10px 0; }
+
+/* Handle */
+/* line 148, views/app.scss */
+::-webkit-scrollbar-thumb {
+background: rgba(0, 0, 0, 0.6); }
+
+/* line 153, views/app.scss */
+::-webkit-scrollbar-thumb:window-inactive {
+background: rgba(0, 0, 0, 0.2); }
+
 
 .Image {
   border-right: 1px solid #DDDDDD;
@@ -87,10 +110,6 @@ h2 {
 
 .Article {
   padding: 0 40px 0 0;
-}
-
-.Project-nav {
-  max-width: 400px;
 }
 
 .Tease {

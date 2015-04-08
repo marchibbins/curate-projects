@@ -82,6 +82,10 @@
  * Tease
  */
 
+/**
+ * Content
+ */
+
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 
 /**
@@ -1039,7 +1043,7 @@ ul {
  * Size: breakpoint 1 (small)
  */
 
-@media (min-width:320px) and (max-width:640px) {
+@media (min-width:320px) and (max-width:520px) {
   /**
    * Make an element shrink wrap its content.
    */
@@ -1213,7 +1217,7 @@ ul {
  * Size: breakpoint 2 (medium)
  */
 
-@media (min-width:640px) and (max-width:960px) {
+@media (min-width:520px) and (max-width:960px) {
   /**
    * Make an element shrink wrap its content.
    */
@@ -1617,31 +1621,44 @@ ul {
 
 .Wrapper-logo {
   position: absolute;
-  z-index: 10;
+  z-index: 30;
   left: 20px;
   line-height: 112px;
   height: 112px;
 }
 
+@media (min-width:320px) and (max-width:520px) {
+  .Wrapper-logo {
+    height: 84px;
+    line-height: 84px;
+  }
+}
+
 .Wrapper-left {
-  height: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  height: 504px;
   float: left;
+  overflow: hidden;
   padding-left: 20px;
   padding-top: 112px;
+  position: relative;
   width: 200px;
-  -webkit-transition: width 1s;
-  transition: width 1s;
+  z-index: 20;
 }
 
-.Wrapper-left.is-closed {
-  width: 0;
-}
+@media (min-width:320px) and (max-width:520px) {
+  .Wrapper-left {
+    height: 1px;
+    padding-left: 0;
+    position: fixed;
+    width: 1px;
+    padding-top: 84px;
+  }
 
-@media (min-width:640px) {
-  .Wrapper-left.is-closed {
-    -webkit-transition: none 0s;
-    transition: none 0s;
-    width: 200px;
+  .Wrapper-left.is-open {
+    height: 504px;
+    padding-left: 20px;
+    width: 100%;
   }
 }
 
@@ -1649,17 +1666,38 @@ ul {
   width: 200px;
 }
 
+.Wrapper-middle {
+  height: 504px;
+  float: left;
+  padding-top: 112px;
+  padding-left: 220px;
+  position: absolute;
+  top: 0;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.95);
+}
+
+@media (min-width:320px) and (max-width:520px) {
+  .Wrapper-middle {
+    padding-left: 0;
+    padding-top: 84px;
+  }
+}
+
 .Wrapper-right {
   height: 100%;
-  overflow-y: hidden;
-  position: relative;
+  overflow: hidden;
+  position: absolute;
   background: white;
+  width: 100%;
 }
 
 .Wrapper-right-container {
   height: 100%;
   box-sizing: border-box;
   padding-top: 112px;
+  overflow-x: scroll;
+  padding-left: 640px;
 }
 
 .admin-bar .Wrapper-right {
@@ -1667,7 +1705,6 @@ ul {
 }
 
 .admin-bar .Wrapper-right-container {
-  /* padding-top: calc(32px + var(--Wrapper-right-top-padding)); */
   margin-top: 32px;
 }
 
@@ -1677,7 +1714,6 @@ ul {
   }
 
   .admin-bar .Wrapper-right-container {
-    /* padding-top: calc(46px + var(--Wrapper-right-top-padding)); */
     margin-top: 46px;
   }
 }
@@ -1686,20 +1722,16 @@ ul {
   position: absolute;
   left: 200px;
   top: 0;
-  z-index: 1;
+  z-index: 30;
   margin-top: 10px;
   -webkit-transition: left 1s;
   transition: left 1s;
 }
 
-@media (min-width:640px) {
+@media (min-width:520px) {
   .Wrapper-toggle {
     display: none;
   }
-}
-
-.Wrapper-toggle.is-closed {
-  left: 0;
 }
 
 .admin-bar .Wrapper-toggle {
@@ -1735,6 +1767,17 @@ ul {
   top: 12px;
   right: 10px;
   width: 38px;
+}
+
+@media (min-width:320px) and (max-width:520px) {
+  .Logo h1 {
+    font-size: 24px;
+    font-size: 1.5rem;
+  }
+
+  .Logo a:after {
+    top: 8px;
+  }
 }
 
 .Toggle {
@@ -1797,9 +1840,31 @@ ul {
 
 .HorizontalTable-cell-container--img {
   height: 504px;
-  margin-top: -84px;
+  /*margin-top: calc(0-(var(--HorizontalTable-height-img)-var(--HorizontalTable-height))); */
   width: auto;
   max-height: none;
+}
+
+.Project-nav {
+  max-width: 420px;
+}
+
+.ProjectContent {
+  height: 420px;
+  width: 100%;
+  max-width: 420px;
+  box-sizing: border-box;
+  padding: 0 10px;
+}
+
+@media (min-width:320px) and (max-width:520px) {
+  .ProjectContent {
+    max-width: none;
+  }
+}
+
+.Project-gallery {
+  float: left;
 }
 
 @font-face {
@@ -1820,8 +1885,8 @@ body {
 
 body {
   color: #222;
-  font: 14px/2 'bitstream_vera_serifroman', serif;
-  font: 0.875rem/2 'bitstream_vera_serifroman', serif;
+  font: 12px/2.5 'bitstream_vera_serifroman', serif;
+  font: 0.75rem/2.5 'bitstream_vera_serifroman', serif;
   /* 14px/28 */
   overflow-y: hidden;
 }
@@ -1864,6 +1929,39 @@ h2 {
   max-height: 100%;
 }
 
+/* Let's get this party started */
+
+/* line 135, views/app.scss */
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  opacity: 0.5;
+}
+
+/* Track */
+
+/* line 141, views/app.scss */
+
+::-webkit-scrollbar-track {
+  height: 95%;
+  padding: 10px 0;
+}
+
+/* Handle */
+
+/* line 148, views/app.scss */
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+/* line 153, views/app.scss */
+
+::-webkit-scrollbar-thumb:window-inactive {
+  background: rgba(0, 0, 0, 0.2);
+}
+
 .Image {
   border-right: 1px solid #DDDDDD;
   height: 100%;
@@ -1877,10 +1975,6 @@ h2 {
 
 .Article {
   padding: 0 40px 0 0;
-}
-
-.Project-nav {
-  max-width: 400px;
 }
 
 .Tease img {

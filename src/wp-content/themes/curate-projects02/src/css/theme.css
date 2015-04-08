@@ -10,10 +10,12 @@
  */
 
 @custom-media --sm-and-above (min-width:320px);
-@custom-media --sm-viewport (min-width:320px) and (max-width:640px);
+@custom-media --sm-viewport (min-width:320px) and (max-width:520px);
 @custom-media --sm-viewport-plus (min-width:320px);
-@custom-media --md-viewport (min-width:640px) and (max-width:960px);
-@custom-media --md-viewport-plus (min-width:640px);
+
+@custom-media --md-viewport (min-width:520px) and (max-width:960px);
+@custom-media --md-viewport-plus (min-width:520px);
+
 @custom-media --lg-viewport (min-width:960px);
 
 
@@ -75,12 +77,13 @@
  */
 
 :root {
-  --font-size: 0.875rem; /* 28 */
+  --font-size: 0.75rem; /* 28 */
   --font-family-sans: 'Noto Sans', sans-serif;
   --font-family-serif: 'bitstream_vera_serifroman', serif;
   --font-family-serif-bold: 'bitstream_vera_serifbold', serif;
-  --line-height: 2; /* 28 */
+  --line-height: 2.5; /* 28 */
   --line-height-pixels: 28;
+  --app-height: 504px;
 }
 
 /**

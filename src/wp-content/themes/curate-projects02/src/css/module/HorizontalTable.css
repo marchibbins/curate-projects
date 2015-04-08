@@ -19,7 +19,7 @@
 
 .HorizontalTable-cell-container--img {
   height: var(--HorizontalTable-height-img);
-  margin-top: calc(0-(var(--HorizontalTable-height-img)-var(--HorizontalTable-height)));
+  /*margin-top: calc(0-(var(--HorizontalTable-height-img)-var(--HorizontalTable-height))); */
   width: auto;
   max-height: none;
 }

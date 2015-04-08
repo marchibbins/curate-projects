@@ -39,17 +39,20 @@
            {% endblock %}
         </div>
       </div>
-      <div class="Wrapper-toggle js-toggle" data-toggle-target=".Wrapper-left">
+      <div class="Wrapper-toggle js-toggle-wrapper">
         <a class="Toggle" href=""></a>
       </div>
 
-      <section class="Wrapper-right" id="content" role="main">
+      <div class="Wrapper-middle" id="content" role="main">
+            {% block content_middle %}
+            {% endblock %}
+      </div>
+      <div class="Wrapper-right" id="content" role="main">
         <div class="Wrapper-right-container">
-          {% block content %}
-        	Sorry, no content
-          {% endblock %}
+            {% block content_right %}
+            {% endblock %}
         </div>
-      </section>
+      </div>
     </div><!-- /.wrapper -->
 
     <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
