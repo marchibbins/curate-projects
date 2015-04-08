@@ -1684,6 +1684,10 @@ ul {
   }
 }
 
+.Wrapper--noMiddle .Wrapper-middle {
+  display: none;
+}
+
 .Wrapper-right {
   height: 100%;
   overflow: hidden;
@@ -1698,6 +1702,10 @@ ul {
   padding-top: 112px;
   overflow-x: scroll;
   padding-left: 640px;
+}
+
+.Wrapper--noMiddle .Wrapper-right-container {
+  padding-left: 220px;
 }
 
 .admin-bar .Wrapper-right {

@@ -66,6 +66,9 @@
   }
 }
 
+.Wrapper--noMiddle .Wrapper-middle {
+  display: none;
+}
 
 .Wrapper-right {
   height: 100%;
@@ -81,6 +84,10 @@
   padding-top: var(--Wrapper-logo-block-height);
   overflow-x: scroll;
   padding-left: calc(var(--Wrapper-left-width-total-sm)+var(--Wrapper-middle-width-total-sm));
+}
+
+.Wrapper--noMiddle .Wrapper-right-container {
+  padding-left: var(--Wrapper-left-width-total-sm);
 }
 
 .admin-bar .Wrapper-right {
