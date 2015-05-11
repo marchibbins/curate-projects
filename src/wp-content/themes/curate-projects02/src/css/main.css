@@ -128,3 +128,15 @@ background: rgba(0, 0, 0, 0.2); }
   padding-right: var(--Tease-image-padding);
   padding-bottom: var(--Tease-image-padding);
 }
+
+.SubNav {
+  position: absolute;
+  top: var(--SubNav-top);
+  left: var(--SubNav-left);
+  z-index: 4;
+}
+
+.Wrapper {
+  position: relative;
+
+}

@@ -4,17 +4,6 @@
 
 <article class="ProjectContent">
 
-  <header>
-    <h2>{{post.title}}</h2>
-    <nav class="Nav ProjectContent-nav">
-      <ul class="Arrange">
-        {% for page in post.get_field('sub_pages') %}
-        <li class="Nav-item Arrange-sizeFit"><a href="#{{loop.index}}">{{page.sub_page_title}}</a></li>
-        {% endfor %}
-      </ul>
-    </nav>
-  </header>
-
   <div class="YScroll">
     <div class="Article">
       {% for page in post.get_field('sub_pages') %}
@@ -29,10 +18,28 @@
 
 {% endblock %}
 
+
 {% block content %}
 
-  <article>
+{% embed "layout-with-subnav.twig" with {'extra_class':'Content--topPad'} %}
 
+  {% block subnav %}
+    <h2>{{post.title}}</h2>
+    <nav class="Nav ProjectNav">
+      <ul class="Arrange js-tabs" role="tablist">
+        <li id="tab0" role="tab" class="Nav-item Arrange-sizeFit Nav--active" aria-controls="panel0" aria-selected="true"><a href="#panel0">Gallery</a></li>
+        {% for page in post.get_field('sub_pages') %}
+        <li id="tab1" role="tab" class="Nav-item Arrange-sizeFit" aria-controls="panel{{loop.index}}" aria-selected="false"><a href="#panel{{loop.index}}">{{page.sub_page_title}}</a></li>
+        {% endfor %}
+      </ul>
+    </nav>
+
+  {% endblock %}
+
+  {% block main %}
+
+
+  <div id="panel0" role="tabpanel" aria-labelledby="tab0" aria-hidden="false">
     <div class="HorizontalTable">
       {% for img in post.get_field('gallery') %}
       <div class="HorizontalTable-cell HorizontalTable-cell--img">
@@ -57,7 +64,25 @@
       </div>
       {% endfor %}
     </div> <!--- /.HorizontalTable -->
+  </div>
 
-  </article>
+
+  {% for page in post.get_field('sub_pages') %}
+  <div id="panel{{loop.index}}" role="tabpanel" aria-labelledby="tab{{loop.index}}" aria-hidden="true">
+
+    <div class="ProjectContent">
+    	<div class="YScroll">
+    	  <div class="Article">
+          {{page.sub_page_content}}
+    	  </div>
+    	</div>
+    </div>
+
+  </div>
+  {% endfor %}
+
+  {% endblock %}
+
+{% endembed %}
 
 {% endblock %}
