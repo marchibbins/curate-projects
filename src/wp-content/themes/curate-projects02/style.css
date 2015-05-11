@@ -67,14 +67,6 @@
  */
 
 /**
- * Banner
- */
-
-/**
- * Content
- */
-
-/**
  * Horizontal scroll table.
  */
 
@@ -90,16 +82,12 @@
  * Tease
  */
 
-/**
- * Content
- */
-
-/*! normalize.css v3.0.2 | MIT License | git.io/normalize */
+/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 
 /**
  * 1. Set default font family to sans-serif.
- * 2. Prevent iOS text size adjust after orientation change, without disabling
- *    user zoom.
+ * 2. Prevent iOS and IE text size adjust after device orientation change,
+ *    without disabling user zoom.
  */
 
 html {
@@ -172,7 +160,7 @@ audio:not([controls]) {
 
 /**
  * Address `[hidden]` styling not present in IE 8/9/10.
- * Hide the `template` element in IE 8/9/11, Safari, and Firefox < 22.
+ * Hide the `template` element in IE 8/9/10/11, Safari, and Firefox < 22.
  */
 
 [hidden],
@@ -192,7 +180,8 @@ a {
 }
 
 /**
- * Improve readability when focused and also mouse hovered in all browsers.
+ * Improve readability of focused elements when they are also in an
+ * active/hover state.
  */
 
 a:active,
@@ -457,15 +446,14 @@ input[type="number"]::-webkit-outer-spin-button {
 
 /**
  * 1. Address `appearance` set to `searchfield` in Safari and Chrome.
- * 2. Address `box-sizing` set to `border-box` in Safari and Chrome
- *    (include `-moz` to future-proof).
+ * 2. Address `box-sizing` set to `border-box` in Safari and Chrome.
  */
 
 input[type="search"] {
   -webkit-appearance: textfield;
   /* 1 */
-  /* 2 */
   box-sizing: content-box;
+  /* 2 */
 }
 
 /**
@@ -1051,7 +1039,7 @@ ul {
  * Size: breakpoint 1 (small)
  */
 
-@media (min-width:320px) and (max-width:520px) {
+@media (min-width:320px) and (max-width:640px) {
   /**
    * Make an element shrink wrap its content.
    */
@@ -1225,7 +1213,7 @@ ul {
  * Size: breakpoint 2 (medium)
  */
 
-@media (min-width:520px) and (max-width:960px) {
+@media (min-width:640px) and (max-width:960px) {
   /**
    * Make an element shrink wrap its content.
    */
@@ -1570,77 +1558,6 @@ ul {
 }
 
 /**
- * Contain floats
- *
- * Make an element expand to contain floated children.
- * Uses pseudo-elements (micro clearfix).
- *
- * 1. The space content is one way to avoid an Opera bug when the
- *    `contenteditable` attribute is included anywhere else in the document.
- *    Otherwise it causes space to appear at the top and bottom of the
- *    element.
- * 2. The use of `table` rather than `block` is only necessary if using
- *    `:before` to contain the top-margins of child elements.
- */
-
-.u-cf:before,
-.u-cf:after {
-  content: " ";
-  /* 1 */
-  display: table;
-  /* 2 */
-}
-
-.u-cf:after {
-  clear: both;
-}
-
-/**
- * New block formatting context
- *
- * This affords some useful properties to the element. It won't wrap under
- * floats. Will also contain any floated children.
-
- * N.B. This will clip overflow. Use the alternative method below if this is
- * problematic.
- */
-
-.u-nbfc {
-  overflow: hidden !important;
-}
-
-/**
- * New block formatting context (alternative)
- *
- * Alternative method when overflow must not be clipped.
- *
- * 1. Create a new block formatting context (NBFC).
- * 2. Avoid shrink-wrap behaviour of table-cell.
- *
- * N.B. This breaks down in some browsers when elements within this element
- * exceed its width.
- */
-
-.u-nbfcAlt {
-  display: table-cell !important;
-  /* 1 */
-  width: 10000px !important;
-  /* 2 */
-}
-
-/**
- * Floats
- */
-
-.u-floatLeft {
-  float: left !important;
-}
-
-.u-floatRight {
-  float: right !important;
-}
-
-/**
  * Display-type utilities
  */
 
@@ -1694,75 +1611,109 @@ ul {
   display: table-row !important;
 }
 
-/**
- * Vertical alignment utilities
- * Depends on an appropriate `display` value.
- */
-
-.u-alignBaseline {
-  vertical-align: baseline !important;
+.Wrapper {
+  height: 100%;
 }
 
-.u-alignBottom {
-  vertical-align: bottom !important;
+.Wrapper-logo {
+  position: absolute;
+  z-index: 10;
+  left: 20px;
+  line-height: 112px;
+  height: 112px;
 }
 
-.u-alignMiddle {
-  vertical-align: middle !important;
+.Wrapper-left {
+  height: 100%;
+  float: left;
+  padding-left: 20px;
+  padding-top: 112px;
+  width: 200px;
+  -webkit-transition: width 1s;
+  transition: width 1s;
 }
 
-.u-alignTop {
-  vertical-align: top !important;
+.Wrapper-left.is-closed {
+  width: 0;
 }
 
-.u-posAbsolute {
-  position: absolute !important;
+@media (min-width:640px) {
+  .Wrapper-left.is-closed {
+    -webkit-transition: none 0s;
+    transition: none 0s;
+    width: 200px;
+  }
 }
 
-/**
- * Pins to all corners by default. But when a width and/or height are
- * provided, the element will be centered in its nearest relatively-positioned
- * ancestor.
- */
-
-.u-posAbsoluteCenter {
-  bottom: 0 !important;
-  left: 0 !important;
-  margin: auto !important;
-  position: absolute !important;
-  right: 0 !important;
-  top: 0 !important;
+.Wrapper-left-container {
+  width: 200px;
 }
 
-/**
- * 1. Make sure fixed elements are promoted into a new layer, for performance
- *    reasons.
- */
-
-.u-posFixed {
-  position: fixed !important;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  /* 1 */
+.Wrapper-right {
+  height: 100%;
+  overflow-y: hidden;
+  position: relative;
+  background: white;
 }
 
-.u-posRelative {
-  position: relative !important;
+.Wrapper-right-container {
+  height: 100%;
+  box-sizing: border-box;
+  padding-top: 112px;
 }
 
-.u-posStatic {
-  position: static !important;
+.admin-bar .Wrapper-right {
+  top: -32px;
 }
 
-/* @import "./module/Wrapper.css"; */
+.admin-bar .Wrapper-right-container {
+  /* padding-top: calc(32px + var(--Wrapper-right-top-padding)); */
+  margin-top: 32px;
+}
+
+@media (max-width:782px) {
+  .admin-bar .Wrapper-right {
+    top: -46px;
+  }
+
+  .admin-bar .Wrapper-right-container {
+    /* padding-top: calc(46px + var(--Wrapper-right-top-padding)); */
+    margin-top: 46px;
+  }
+}
+
+.Wrapper-toggle {
+  position: absolute;
+  left: 200px;
+  top: 0;
+  z-index: 1;
+  margin-top: 10px;
+  -webkit-transition: left 1s;
+  transition: left 1s;
+}
+
+@media (min-width:640px) {
+  .Wrapper-toggle {
+    display: none;
+  }
+}
+
+.Wrapper-toggle.is-closed {
+  left: 0;
+}
+
+.admin-bar .Wrapper-toggle {
+  padding-top: 32px;
+}
+
+@media (max-width:782px) {
+  .admin-bar .Wrapper-toggle {
+    padding-top: 46px;
+  }
+}
 
 .Logo {
-  /* position: fixed; */
   font-family: 'Noto Sans', sans-serif;
-  font-size: 24px;
-  font-size: 1.5rem;
-  z-index: 3;
-  padding-left: 10px;
 }
 
 .Logo a {
@@ -1781,21 +1732,9 @@ ul {
   height: 27.55px;
   opacity: 1;
   position: absolute;
-  top: 8px;
+  top: 12px;
   right: 10px;
   width: 38px;
-}
-
-@media (min-width:320px) {
-  .Logo {
-    font-size: 28px;
-    font-size: 1.75rem;
-    position: static;
-  }
-
-  .Logo a:after {
-    top: 12px;
-  }
 }
 
 .Toggle {
@@ -1837,112 +1776,30 @@ ul {
   padding-left: 20px;
 }
 
-@media (min-width:320px) {
-  .HorizontalTable {
-    display: table;
-    table-layout: fixed;
-  }
-
-  .HorizontalTable-cell {
-    display: table-cell;
-    vertical-align: top;
-  }
-
-  .HorizontalTable-cell-container {
-    height: 420px;
-  }
-
-  .HorizontalTable-cell-container {
-    width: 420px;
-    max-height: 420px;
-  }
-
-  .HorizontalTable-cell-container--img {
-    height: 504px;
-    /*margin-top: calc(0-(var(--HorizontalTable-height-img)-var(--HorizontalTable-height))); */
-    width: auto;
-    max-height: none;
-  }
+.HorizontalTable {
+  display: table;
+  table-layout: fixed;
 }
 
-.Project-nav {
-  max-width: 420px;
+.HorizontalTable-cell {
+  display: table-cell;
+  vertical-align: top;
 }
 
-.ProjectContent {
+.HorizontalTable-cell-container {
   height: 420px;
-  width: 100%;
-  max-width: 420px;
-  box-sizing: border-box;
-  padding: 0 10px;
 }
 
-@media (min-width:320px) and (max-width:520px) {
-  .ProjectContent {
-    max-width: none;
-  }
+.HorizontalTable-cell-container {
+  width: 420px;
+  max-height: 420px;
 }
 
-.Project-gallery {
-  float: left;
-}
-
-.Banner {
-  height: 1px;
-  padding-left: 10px;
-  /* padding-top: var(--Logo-height-sm); */
-  width: 1px;
-  position: relative;
-  z-index: 0;
-}
-
-@media (min-width:320px) {
-  .Banner {
-    width: 200px;
-    float: left;
-    z-index: 0;
-    padding-top: 0;
-  }
-}
-
-.Content {
-  background: white;
-  /* padding-top: var(--Logo-height-sm); */
-  position: relative;
-  z-index: 1;
-}
-
-@media (min-width:320px) {
-  .Content {
-    padding-top: 0;
-    overflow-y: hidden;
-  }
-}
-
-.Image > img {
-  display: block;
-  height: auto;
-  max-width: 100%;
-}
-
-.Image {
-  height: 100%;
-  padding: 20px 10px;
-  border-bottom: 1px solid #DDDDDD;
-}
-
-@media (min-width:320px) {
-  .Image {
-    border-right: 1px solid #DDDDDD;
-    height: 100%;
-    padding: 0 20px;
-  }
-
-  .Image > img {
-    height: 100%;
-    width: auto;
-    max-width: none;
-  }
+.HorizontalTable-cell-container--img {
+  height: 504px;
+  margin-top: -84px;
+  width: auto;
+  max-height: none;
 }
 
 @font-face {
@@ -1963,15 +1820,10 @@ body {
 
 body {
   color: #222;
-  font: 12px/2.5 'bitstream_vera_serifroman', serif;
-  font: 0.75rem/2.5 'bitstream_vera_serifroman', serif;
+  font: 14px/2 'bitstream_vera_serifroman', serif;
+  font: 0.875rem/2 'bitstream_vera_serifroman', serif;
   /* 14px/28 */
-}
-
-@media (min-width:320px) {
-  body {
-    overflow-y: hidden;
-  }
+  overflow-y: hidden;
 }
 
 /* Baseline.it */
@@ -2005,6 +1857,12 @@ h2 {
   font-weight: 400;
 }
 
+p {
+  line-height: 1.6;
+  margin-bottom: 16px;
+  margin-bottom: 1rem;
+}
+
 .YScroll {
   box-sizing: border-box;
   overflow-x: none;
@@ -2012,41 +1870,23 @@ h2 {
   max-height: 100%;
 }
 
-/* Let's get this party started */
-
-/* line 135, views/app.scss */
-
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-  opacity: 0.5;
+.Image {
+  border-right: 1px solid #DDDDDD;
+  height: 100%;
+  padding: 0 20px;
 }
 
-/* Track */
-
-/* line 141, views/app.scss */
-
-::-webkit-scrollbar-track {
-  height: 95%;
-  padding: 10px 0;
-}
-
-/* Handle */
-
-/* line 148, views/app.scss */
-
-::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.6);
-}
-
-/* line 153, views/app.scss */
-
-::-webkit-scrollbar-thumb:window-inactive {
-  background: rgba(0, 0, 0, 0.2);
+.Image > img {
+  height: 100%;
+  width: auto;
 }
 
 .Article {
   padding: 0 40px 0 0;
+}
+
+.Project-nav {
+  max-width: 400px;
 }
 
 .Tease img {
