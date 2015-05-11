@@ -7,7 +7,7 @@
 {% endblock %}
 
   <body class="{{body_class}}" data-template="base.twig">
-      <div class="{% block wrapper_class %}{% endblock %}">
+      <div class="Wrapper">
           <header>
               <h1 class="Logo">
                   <a href="/" rel="home">{{site.name}}</a>
@@ -24,12 +24,11 @@
               </div>
           </header>
 
+          {% block content %}
           <div class="Content" id="content" role="main">
-            <div class="">
-                {% block content %}
-                {% endblock %}
-            </div>
+              Nutin here.
           </div>
+          {% endblock %}
 
       {#
       <div class="Wrapper-middle" id="content" role="main">

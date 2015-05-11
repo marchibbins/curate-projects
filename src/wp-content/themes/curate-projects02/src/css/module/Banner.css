@@ -5,11 +5,12 @@
   width: 1px;
   position: relative;
   z-index: 0;
+  box-sizing: border-box;
 }
 
 @media(--sm-viewport-plus){
   .Banner {
-    width: 200px;
+    width: var(--Banner-width);
     float: left;
     z-index: 0;
     padding-top: 0;

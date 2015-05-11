@@ -29,26 +29,11 @@
 }
 
 /**
- * Wrapper
- */
-:root {
-  --Wrapper-logo-block-height: calc(var(--line-height-pixels)*4px);
-  --Wrapper-logo-block-height-sm: calc(var(--line-height-pixels)*3px);
-  --Wrapper-left-padding: var(--space-large-px);
-  --Wrapper-left-width-sm: 200px;
-  --Wrapper-left-width-total-sm: calc(var(--Wrapper-left-width-sm)+var(--Wrapper-left-padding));
-  --Wrapper-middle-width-total-sm: 420px;
-
-  --Wrapper-height: var(--app-height);
-}
-
-/**
  * Logo
  */
-
 :root {
   --Logo-height-sm: 60px;
-  --Logo-height-lg: 92px;
+  --Logo-height-lg: 70px;
   --Logo-ratio: 145/200;
   --Logo-icon-width: 38px;
   --Logo-icon-height: calc(var(--Logo-icon-width)*var(--Logo-ratio));
@@ -62,12 +47,22 @@
  */
 :root {
   --Banner-left-padding: var(--space-small-px);
+  --Banner-width: 200px;
 }
 
 /**
  * Content
  */
 :root {
+}
+
+/**
+ * SubNav
+ */
+:root {
+  --SubNav-height: calc(var(--line-height-pixels)*3px);
+  --SubNav-left: 200px;
+  --SubNav-top: var(--Logo-height-lg);
 }
 
 /**
