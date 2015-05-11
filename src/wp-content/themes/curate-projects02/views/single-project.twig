@@ -37,7 +37,7 @@
       {% for img in post.get_field('gallery') %}
       <div class="HorizontalTable-cell HorizontalTable-cell--img">
         <div class="HorizontalTable-cell-container HorizontalTable-cell-container--img">
-        	<div class="Image">
+          <div class="Image{% if loop.first %} Image--first{% endif %}">
         	  <img src="{{TimberImage(img).src('large')}}" alt="">
         	</div>
         </div>

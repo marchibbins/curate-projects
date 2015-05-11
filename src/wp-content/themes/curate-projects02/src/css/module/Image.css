@@ -23,5 +23,13 @@
     width: auto;
     max-width: none;
   }
+
+  .Image--first {
+    padding-left: 0;
+  }
+}
+
+.Image--first {
+  padding-top: 0;
 }
 
