@@ -1,4 +1,4 @@
-@media(--sm-viewport-plus){
+@media(--md-viewport-plus){
   .HorizontalTable {
     display: table;
     table-layout:fixed;

@@ -1786,7 +1786,7 @@ ul {
   width: 38px;
 }
 
-@media (min-width:320px) {
+@media (min-width:520px) {
   .Logo {
     font-size: 28px;
     font-size: 1.75rem;
@@ -1843,7 +1843,11 @@ ul {
   padding-left: 20px;
 }
 
-@media (min-width:320px) {
+.Nav li[aria-selected='true'] a {
+  color: #f4900c;
+}
+
+@media (min-width:520px) {
   .HorizontalTable {
     display: table;
     table-layout: fixed;
@@ -1871,26 +1875,17 @@ ul {
   }
 }
 
-.Project-nav {
-  max-width: 420px;
-}
-
 .ProjectContent {
   height: 420px;
   width: 100%;
   max-width: 420px;
   box-sizing: border-box;
-  padding: 0 10px;
 }
 
 @media (min-width:320px) and (max-width:520px) {
   .ProjectContent {
     max-width: none;
   }
-}
-
-.Project-gallery {
-  float: left;
 }
 
 .Banner {
@@ -1903,7 +1898,7 @@ ul {
   box-sizing: border-box;
 }
 
-@media (min-width:320px) {
+@media (min-width:520px) {
   .Banner {
     width: 200px;
     float: left;
@@ -1919,13 +1914,13 @@ ul {
   z-index: 1;
 }
 
-@media (min-width:320px) {
+.Content--topPad {
+  padding-top: 84px;
+}
+
+@media (min-width:520px) {
   .Content {
     overflow-y: hidden;
-  }
-
-  .Content--topPad {
-    padding-top: 84px;
   }
 }
 
@@ -1941,7 +1936,7 @@ ul {
   border-bottom: 1px solid #DDDDDD;
 }
 
-@media (min-width:320px) {
+@media (min-width:520px) {
   .Image {
     border-right: 1px solid #DDDDDD;
     height: 100%;
@@ -2029,6 +2024,10 @@ p {
   margin-bottom: 1rem;
 }
 
+div[aria-hidden='true'] {
+  display: none;
+}
+
 .YScroll {
   box-sizing: border-box;
   overflow-x: none;
@@ -2082,9 +2081,15 @@ p {
 
 .SubNav {
   position: absolute;
+  left: 10px;
   top: 70px;
-  left: 200px;
   z-index: 4;
+}
+
+@media (min-width:520px) {
+  .SubNav {
+    left: 200px;
+  }
 }
 
 .Wrapper {

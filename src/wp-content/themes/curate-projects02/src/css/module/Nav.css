@@ -16,3 +16,8 @@
 .Nav--primary .Nav-item ul {
   padding-left: var(--Nav-padding-left);
 }
+
+.Nav li[aria-selected='true'] a {
+  color: var(--link-color-hover-base);
+}
+

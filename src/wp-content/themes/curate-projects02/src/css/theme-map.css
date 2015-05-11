@@ -2,6 +2,8 @@
  * base
  */
 
+@custom-media --layout-break (min-width: 520px);
+
 :root {
   --background-base: var(--color-white);
   --color-base: var(--color-medium-gray);
@@ -61,8 +63,6 @@
  */
 :root {
   --SubNav-height: calc(var(--line-height-pixels)*3px);
-  --SubNav-left: 200px;
-  --SubNav-top: var(--Logo-height-lg);
 }
 
 /**

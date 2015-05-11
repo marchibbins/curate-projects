@@ -26,7 +26,7 @@
 @import "./module/Toggle.css";
 @import "./module/Nav.css";
 @import "./module/HorizontalTable.css";
-@import "./module/Project.css";
+@import "./module/ProjectContent.css";
 
 @import "./module/Banner.css";
 @import "./module/Content.css";
@@ -86,6 +86,10 @@ p {
   margin-bottom: 1rem;
 }
 
+div[aria-hidden='true'] {
+  display: none;
+}
+
 .YScroll {
   box-sizing: border-box;
   overflow-x: none;
@@ -131,9 +135,15 @@ background: rgba(0, 0, 0, 0.2); }
 
 .SubNav {
   position: absolute;
-  top: var(--SubNav-top);
-  left: var(--SubNav-left);
+  left: var(--space-small-px);
+  top: var(--Logo-height-lg);
   z-index: 4;
+}
+
+@media(--md-viewport-plus){
+  .SubNav {
+    left: var(--Banner-width);
+  }
 }
 
 .Wrapper {

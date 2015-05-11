@@ -10,7 +10,7 @@
   border-bottom: 1px solid #DDDDDD;
 }
 
-@media(--sm-viewport-plus){
+@media(--md-viewport-plus){
 
   .Image {
     border-right: 1px solid #DDDDDD;

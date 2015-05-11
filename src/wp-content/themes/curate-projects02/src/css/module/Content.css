@@ -4,13 +4,12 @@
   position: relative;
   z-index: 1;
 }
+.Content--topPad {
+  padding-top: var(--SubNav-height);
+}
 
-@media(--sm-viewport-plus){
+@media(--md-viewport-plus){
   .Content {
     overflow-y: hidden;
-  }
-
-  .Content--topPad {
-    padding-top: var(--SubNav-height);
   }
 }

@@ -8,7 +8,7 @@
   box-sizing: border-box;
 }
 
-@media(--sm-viewport-plus){
+@media(--md-viewport-plus){
   .Banner {
     width: var(--Banner-width);
     float: left;

@@ -1,24 +1,11 @@
-.Project {
-
-}
-
-.Project-nav {
-  max-width: 420px;
-}
-
 .ProjectContent {
   height: 420px;
   width: 100%;
   max-width: 420px;
   box-sizing: border-box;
-  padding: 0 var(--Content-sm-padding);
 }
 @media(--sm-viewport){
   .ProjectContent {
     max-width: none;
   }
-}
-
-.Project-gallery {
-  float: left;
 }

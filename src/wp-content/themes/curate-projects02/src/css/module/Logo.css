@@ -27,7 +27,7 @@
   width: var(--Logo-icon-width);
 }
 
-@media(--sm-viewport-plus){
+@media(--md-viewport-plus){
   .Logo {
     font-size: 1.75rem;
     position: static;
