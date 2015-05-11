@@ -24,6 +24,9 @@
     "suitcss-components-grid": "^2.0.2",
     "suitcss-utils-display": "^0.4.2",
     "suitcss-components-arrange": "^0.6.2",
-    "rework-rem-fallback": "^1.0.0"
+    "rework-rem-fallback": "^1.0.0",
+    "suitcss-utils-align": "^0.2.2",
+    "suitcss-utils-position": "^0.2.2",
+    "suitcss-utils-layout": "^0.4.2"
   }
 }

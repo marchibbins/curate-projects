@@ -1,5 +1,9 @@
 .Logo {
+  /* position: fixed; */
   font-family: var(--Logo-font-family);
+  font-size: 1.5rem;
+  z-index: 3;
+  padding-left: var(--Logo-left-padding);
 }
 
 .Logo a {
@@ -12,23 +16,24 @@
 
 .Logo a:after {
   background: transparent url(assets/img/logo.png) 0 0 no-repeat;
-  background-size: var(--Logo-width);
+  background-size: var(--Logo-icon-width);
   content: '';
   display: block;
-  height: var(--Logo-height);
+  height: var(--Logo-icon-height);
   opacity: 1;
   position: absolute;
-  top: 12px;
+  top: 8px;
   right: 10px;
-  width: var(--Logo-width);
+  width: var(--Logo-icon-width);
 }
 
-@media(--sm-viewport){
-  .Logo h1 {
-    font-size: 1.5rem;
+@media(--sm-viewport-plus){
+  .Logo {
+    font-size: 1.75rem;
+    position: static;
   }
 
   .Logo a:after {
-    top: 8px;
+    top: 12px;
   }
 }

@@ -1,0 +1,27 @@
+.Image > img {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
+.Image {
+  height: 100%;
+  padding: 20px 10px;
+  border-bottom: 1px solid #DDDDDD;
+}
+
+@media(--sm-viewport-plus){
+
+  .Image {
+    border-right: 1px solid #DDDDDD;
+    height: 100%;
+    padding: 0 20px;
+  }
+
+  .Image > img {
+    height: 100%;
+    width: auto;
+    max-width: none;
+  }
+}
+

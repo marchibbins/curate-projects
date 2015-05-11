@@ -15,14 +15,22 @@
 @import "suitcss-components-grid";
 @import "suitcss-components-arrange";
 @import "suitcss-utils-size";
+@import "suitcss-utils-layout";
 @import "suitcss-utils-display";
+@import "suitcss-utils-align";
+@import "suitcss-utils-position";
 
-@import "./module/Wrapper.css";
+/* @import "./module/Wrapper.css"; */
+
 @import "./module/Logo.css";
 @import "./module/Toggle.css";
 @import "./module/Nav.css";
 @import "./module/HorizontalTable.css";
 @import "./module/Project.css";
+
+@import "./module/Banner.css";
+@import "./module/Content.css";
+@import "./module/Image.css";
 
 @font-face {
   font-family: 'bitstream_vera_serifroman';
@@ -42,7 +50,12 @@ html, body {
 body {
   color: var(--color-base);
   font: var(--font-base); /* 14px/28 */
-  overflow-y: hidden;
+}
+
+@media(--sm-viewport-plus){
+  body {
+    overflow-y: hidden;
+  }
 }
 
 /* Baseline.it */
@@ -95,18 +108,6 @@ background: rgba(0, 0, 0, 0.6); }
 /* line 153, views/app.scss */
 ::-webkit-scrollbar-thumb:window-inactive {
 background: rgba(0, 0, 0, 0.2); }
-
-
-.Image {
-  border-right: 1px solid #DDDDDD;
-  height: 100%;
-  padding: 0 20px;
-}
-
-.Image > img {
-  height: 100%;
-  width: auto;
-}
 
 .Article {
   padding: 0 40px 0 0;

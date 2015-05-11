@@ -1,0 +1,13 @@
+.Content {
+  background: white;
+  /* padding-top: var(--Logo-height-sm); */
+  position: relative;
+  z-index: 1;
+}
+
+@media(--sm-viewport-plus){
+  .Content {
+    padding-top: 0;
+    overflow-y: hidden;
+  }
+}

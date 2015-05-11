@@ -47,10 +47,27 @@
  */
 
 :root {
-  --Logo-width: 38px;
-  --Logo-font-family: var(--font-family-sans);
+  --Logo-height-sm: 60px;
+  --Logo-height-lg: 92px;
   --Logo-ratio: 145/200;
-  --Logo-height: calc(var(--Logo-width)*var(--Logo-ratio));
+  --Logo-icon-width: 38px;
+  --Logo-icon-height: calc(var(--Logo-icon-width)*var(--Logo-ratio));
+  --Logo-font-family: var(--font-family-sans);
+  --Logo-left-padding: var(--space-small-px);
+}
+
+
+/**
+ * Banner
+ */
+:root {
+  --Banner-left-padding: var(--space-small-px);
+}
+
+/**
+ * Content
+ */
+:root {
 }
 
 /**

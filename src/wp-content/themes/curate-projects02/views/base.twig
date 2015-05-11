@@ -7,42 +7,31 @@
 {% endblock %}
 
   <body class="{{body_class}}" data-template="base.twig">
-      <div class="Wrapper {% block wrapper_class %}{% endblock %}">
-      <div class="Wrapper-logo">
-        <header class="Logo" role="banner">
-          <h1>
-          	<a href="/" rel="home">{{site.name}}</a>
-          </h1>
-        </header>
-      </div>
-      <div class="Wrapper-left" >
-        <div class="Wrapper-left-container">
-        	{% block header %}
-        	<nav class="Nav Nav--primary" role="navigation">
-        	  <ul>
-        	    {% for item in menu.get_items %}
-                <li class="Nav-item {% if item.current %}is-active {% endif %}{% if item.children|length %}Nav-item--hasChildren {% endif %}">
-        	        <a href="{{item.get_link}}">{{item.title}}</a>
-        	          {% if item.get_children %}
-        	          <ul>
-        	            {% for child in item.get_children %}
-        	            <li class="Nav-item {% if child.current %}is-active{% endif %}">
-        	              <a href="{{child.get_link}}">{{child.title}}</a>
-        	            </li>
-        	            {% endfor %}
-        	          </ul>
-        	          {% endif %}
-        	      </li>
-        	    {% endfor %}
-        	  </ul>
-        	</nav>
-           {% endblock %}
-        </div>
-      </div>
-      <div class="Wrapper-toggle js-toggle-wrapper">
-        <a class="Toggle" href=""></a>
-      </div>
+      <div class="{% block wrapper_class %}{% endblock %}">
+          <header>
+              <h1 class="Logo">
+                  <a href="/" rel="home">{{site.name}}</a>
+              </h1>
+              <div class="Banner" role="banner">
+                  <nav>
+                      {% block header %}
+                      {% include 'navigation.twig' %}
+                      {% endblock %}
+                  </nav>
+                  <div class="Wrapper-toggle js-toggle-wrapper">
+                      <a class="Toggle" href=""></a>
+                  </div>
+              </div>
+          </header>
 
+          <div class="Content" id="content" role="main">
+            <div class="">
+                {% block content %}
+                {% endblock %}
+            </div>
+          </div>
+
+      {#
       <div class="Wrapper-middle" id="content" role="main">
             {% block content_middle %}
             {% endblock %}
@@ -53,6 +42,8 @@
             {% endblock %}
         </div>
       </div>
+      #}
+
     </div><!-- /.wrapper -->
 
     <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
