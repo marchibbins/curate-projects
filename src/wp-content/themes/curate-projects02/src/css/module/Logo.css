@@ -22,7 +22,7 @@
   height: var(--Logo-icon-height);
   opacity: 1;
   position: absolute;
-  top: 8px;
+  top: 7px;
   right: 10px;
   width: var(--Logo-icon-width);
 }
@@ -34,6 +34,6 @@
   }
 
   .Logo a:after {
-    top: 12px;
+    top: 9px;
   }
 }

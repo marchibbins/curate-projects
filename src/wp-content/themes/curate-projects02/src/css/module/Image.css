@@ -17,9 +17,9 @@
 
 .Image-caption {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  bottom: 20px;
+  left: 10px;
+  right: 10px;
   padding: 5px;
   line-height: 1.6;
   background-color: rgba(0, 0, 0, 0.6);
@@ -57,6 +57,7 @@
   }
 
   .Image-caption {
+    bottom: 0;
     left: 20px;
     right: 20px;
   }
