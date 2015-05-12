@@ -1876,6 +1876,10 @@ ul {
   }
 }
 
+.HorizontalTable-cell--article {
+  padding: 0 10px;
+}
+
 @media (min-width:520px) {
   .HorizontalTable {
     display: table;
@@ -1896,7 +1900,7 @@ ul {
     max-height: 420px;
   }
 
-  .HorizontalTable-cell-container--img {
+  .HorizontalTable-cell--img .HorizontalTable-cell-container {
     height: 420px;
     width: auto;
     max-height: none;
@@ -1943,6 +1947,7 @@ ul {
   position: relative;
   z-index: 1;
   height: 100%;
+  margin-top: 10px;
 }
 
 .Content-fullScroll {
@@ -1960,6 +1965,7 @@ ul {
   .Content {
     overflow-y: hidden;
     height: auto;
+    margin-top: 0;
   }
 
   .Content--topPad {
@@ -2062,6 +2068,13 @@ ul {
     top: 70px;
     z-index: 4;
   }
+}
+
+.Tease img {
+  max-height: 200px;
+  float: left;
+  padding-right: 10px;
+  padding-bottom: 10px;
 }
 
 @font-face {
@@ -2174,13 +2187,6 @@ div[aria-hidden='true'] {
 
 .Article {
   padding: 0 40px 0 0;
-}
-
-.Tease img {
-  max-height: 200px;
-  float: left;
-  padding-right: 10px;
-  padding-bottom: 10px;
 }
 
 .Wrapper {

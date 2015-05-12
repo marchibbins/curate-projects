@@ -3,6 +3,7 @@
   position: relative;
   z-index: 1;
   height: 100%;
+  margin-top: var(--space-small-px);
 }
 
 .Content-fullScroll {
@@ -20,6 +21,7 @@
   .Content {
     overflow-y: hidden;
     height: auto;
+    margin-top: 0;
   }
 
   .Content--topPad {

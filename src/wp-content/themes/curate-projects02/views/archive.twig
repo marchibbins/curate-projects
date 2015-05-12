@@ -4,19 +4,19 @@
 {% embed "layout.twig" %}
 
 {% block main %}
-	<div class="HorizontalTable">
-		{% for post in posts %}
-    <div class="HorizontalTable-cell HorizontalTable-cell--article">
-      <div class="HorizontalTable-cell-container">
-        <div class="YScroll">
-          <div class="Article">
+  <div class="Content-fullScroll">
+  	<div class="Content-fullScroll-inner">
+      <div class="HorizontalTable">
+        {% for post in posts %}
+        <div class="HorizontalTable-cell HorizontalTable-cell--article">
+          <div class="HorizontalTable-cell-container">
             {% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}
           </div>
         </div>
+        {% endfor %}
       </div>
     </div>
-		{% endfor %}
-	</div>
+  </div>
 {% endblock %}
 
 {% endembed %}

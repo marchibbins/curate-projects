@@ -27,11 +27,11 @@
 @import "./module/Nav.css";
 @import "./module/HorizontalTable.css";
 @import "./module/ProjectContent.css";
-
 @import "./module/Banner.css";
 @import "./module/Content.css";
 @import "./module/Image.css";
 @import "./module/SubNav.css";
+@import "./module/Tease.css";
 
 @font-face {
   font-family: 'bitstream_vera_serifroman';
@@ -119,17 +119,6 @@ background: rgba(0, 0, 0, 0.2); }
 
 .Article {
   padding: 0 40px 0 0;
-}
-
-.Tease {
-
-}
-
-.Tease img {
-  max-height: 200px;
-  float: left;
-  padding-right: var(--Tease-image-padding);
-  padding-bottom: var(--Tease-image-padding);
 }
 
 .Wrapper {

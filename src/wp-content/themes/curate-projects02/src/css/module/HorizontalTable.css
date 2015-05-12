@@ -1,3 +1,7 @@
+.HorizontalTable-cell--article {
+  padding: 0 var(--space-small-px);
+}
+
 @media(--md-viewport-plus){
   .HorizontalTable {
     display: table;
@@ -18,7 +22,7 @@
     max-height: var(--HorizontalTable-height);
   }
 
-  .HorizontalTable-cell-container--img {
+  .HorizontalTable-cell--img .HorizontalTable-cell-container {
     height: var(--HorizontalTable-height);
     width: auto;
     max-height: none;

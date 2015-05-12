@@ -1,0 +1,10 @@
+.Tease {
+}
+
+.Tease img {
+  max-height: 200px;
+  float: left;
+  padding-right: var(--Tease-image-padding);
+  padding-bottom: var(--Tease-image-padding);
+}
+
