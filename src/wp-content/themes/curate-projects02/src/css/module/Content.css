@@ -8,12 +8,12 @@
 .Content-fullScroll {
   position: absolute;
   top: 0;
-  bottom: calc(var(--Logo-height-sm));
+  bottom: calc(var(--Logo-height));
   overflow-y: auto;
 }
 
 .Content--withSubNav .Content-fullScroll {
-  bottom: calc(var(--Logo-height-sm) + var(--SubNav-height));
+  bottom: calc(var(--Logo-height) + var(--SubNav-height));
 }
 
 @media(--md-viewport-plus){
@@ -23,7 +23,7 @@
   }
 
   .Content--topPad {
-    padding-top: var(--SubNav-height);
+    padding-top: calc(var(--SubNav-height) + var(--space-small-px));
   }
 
   .Content-fullScroll {

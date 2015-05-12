@@ -1905,17 +1905,19 @@ ul {
   }
 }
 
-.ProjectContent {
-  height: 420px;
-  width: 100%;
-  max-width: 420px;
-  box-sizing: border-box;
+@media (min-width:520px) {
+  .ProjectContent {
+    height: 420px;
+    width: 100%;
+    max-width: 420px;
+    box-sizing: border-box;
+    padding-left: 0;
+  }
 }
 
-@media (min-width:320px) and (max-width:520px) {
-  .ProjectContent {
-    max-width: none;
-  }
+.ProjectContent {
+  max-width: none;
+  padding-left: 10px;
 }
 
 .Banner {
@@ -1948,12 +1950,12 @@ ul {
 .Content-fullScroll {
   position: absolute;
   top: 0;
-  bottom: 60px;
+  bottom: 70px;
   overflow-y: auto;
 }
 
 .Content--withSubNav .Content-fullScroll {
-  bottom: 144px;
+  bottom: 154px;
 }
 
 @media (min-width:520px) {
@@ -1963,7 +1965,7 @@ ul {
   }
 
   .Content--topPad {
-    padding-top: 84px;
+    padding-top: 94px;
   }
 
   .Content-fullScroll {
@@ -2051,6 +2053,7 @@ ul {
 
 .SubNav {
   padding-left: 10px;
+  padding-top: 10px;
 }
 
 @media (min-width:520px) {
