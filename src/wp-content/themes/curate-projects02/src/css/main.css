@@ -31,6 +31,7 @@
 @import "./module/Banner.css";
 @import "./module/Content.css";
 @import "./module/Image.css";
+@import "./module/SubNav.css";
 
 @font-face {
   font-family: 'bitstream_vera_serifroman';
@@ -52,10 +53,8 @@ body {
   font: var(--font-base); /* 14px/28 */
 }
 
-@media(--sm-viewport-plus){
-  body {
-    overflow-y: hidden;
-  }
+body {
+  overflow-y: hidden;
 }
 
 /* Baseline.it */
@@ -133,20 +132,7 @@ background: rgba(0, 0, 0, 0.2); }
   padding-bottom: var(--Tease-image-padding);
 }
 
-.SubNav {
-  position: absolute;
-  left: var(--space-small-px);
-  top: var(--Logo-height-lg);
-  z-index: 4;
-}
-
-@media(--md-viewport-plus){
-  .SubNav {
-    left: var(--Banner-width);
-  }
-}
-
 .Wrapper {
   position: relative;
-
+  height: 100%;
 }

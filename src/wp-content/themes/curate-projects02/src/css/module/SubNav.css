@@ -1,0 +1,14 @@
+.SubNav {
+  padding-left: var(--space-small-px);
+  padding-top: 10px;
+}
+
+@media(--md-viewport-plus){
+  .SubNav {
+    position: absolute;
+    left: var(--Banner-width);
+    top: var(--Logo-height);
+    z-index: 4;
+  }
+}
+

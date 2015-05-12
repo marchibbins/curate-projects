@@ -1,24 +1,5 @@
 {% extends "base.twig" %}
 
-{% block content_middle %}
-
-<article class="ProjectContent">
-
-  <div class="YScroll">
-    <div class="Article">
-      {% for page in post.get_field('sub_pages') %}
-      <div class="{% if loop.first != true %}u-hidden{% endif %}">
-        {{page.sub_page_content}}
-      </div>
-      {% endfor %}
-    </div>
-  </div>
-
-</article>
-
-{% endblock %}
-
-
 {% block content %}
 
 {% embed "layout-with-subnav.twig" with {'extra_class':'Content--topPad'} %}
@@ -39,47 +20,56 @@
   {% block main %}
 
 
-  <div id="panel0" role="tabpanel" aria-labelledby="tab0" aria-hidden="false">
-    <div class="HorizontalTable">
-      {% for img in post.get_field('gallery') %}
-      <div class="HorizontalTable-cell HorizontalTable-cell--img">
-        <div class="HorizontalTable-cell-container HorizontalTable-cell-container--img">
-          <div class="Image{% if loop.first %} Image--first{% endif %}">
-            <img src="{{TimberImage(img).src('large')}}" alt="">
-            {% if (TimberImage(img).caption or TimberImage(img).materials or TimberImage(img).dimensions) %}
-              <ul class="Image-caption">
-                {% if TimberImage(img).caption %}
-                  <li class="Image-caption-item">{{ TimberImage(img).caption }}</li>
-                {% endif %}
-                {% if TimberImage(img).materials %}
-                  <li class="Image-caption-item">{{ TimberImage(img).materials }}</li>
-                {% endif %}
-                {% if TimberImage(img).dimensions %}
-                  <li class="Image-caption-item">{{ TimberImage(img).dimensions }}</li>
-                {% endif %}
-              </ul>
-            {% endif %}
-        	</div>
-        </div>
-      </div>
+  <div class="Content-fullScroll">
+  	<div class="Content-fullScroll-inner">
+
+  		<div id="panel0" role="tabpanel" aria-labelledby="tab0" aria-hidden="false">
+  		  <div class="HorizontalTable">
+  		    {% for img in post.get_field('gallery') %}
+  		    <div class="HorizontalTable-cell HorizontalTable-cell--img">
+  		      <div class="HorizontalTable-cell-container HorizontalTable-cell-container--img">
+  		        <div class="Image{% if loop.first %} Image--first{% endif %}">
+  		          <img src="{{TimberImage(img).src('large')}}" alt="">
+  		          {% if (TimberImage(img).caption or TimberImage(img).materials or TimberImage(img).dimensions) %}
+  		            <ul class="Image-caption">
+  		              {% if TimberImage(img).caption %}
+  		                <li class="Image-caption-item">{{ TimberImage(img).caption }}</li>
+  		              {% endif %}
+  		              {% if TimberImage(img).materials %}
+  		                <li class="Image-caption-item">{{ TimberImage(img).materials }}</li>
+  		              {% endif %}
+  		              {% if TimberImage(img).dimensions %}
+  		                <li class="Image-caption-item">{{ TimberImage(img).dimensions }}</li>
+  		              {% endif %}
+  		            </ul>
+  		          {% endif %}
+  		      	</div>
+
+  		      </div>
+  		    </div>
+  		    {% endfor %}
+  		  </div> <!--- /.HorizontalTable -->
+  		</div>
+
+  	</div>
+  </div>
+
+
+  <div class="Content-fullScroll Content-fullScroll--constrain">
+  	<div class="Content-fullScroll-inner">
+
+      {% for page in post.get_field('sub_pages') %}
+  		<div id="panel{{loop.index}}" role="tabpanel" aria-labelledby="tab{{loop.index}}" aria-hidden="true">
+  		  <div class="ProjectContent">
+          <div class="Article">
+            {{page.sub_page_content}}
+          </div>
+  		  </div>
+  		</div>
       {% endfor %}
-    </div> <!--- /.HorizontalTable -->
+
+  	</div>
   </div>
-
-
-  {% for page in post.get_field('sub_pages') %}
-  <div id="panel{{loop.index}}" role="tabpanel" aria-labelledby="tab{{loop.index}}" aria-hidden="true">
-
-    <div class="ProjectContent">
-    	<div class="YScroll">
-    	  <div class="Article">
-    	      {{page.sub_page_content}}
-    	  </div>
-    	</div>
-    </div>
-
-  </div>
-  {% endfor %}
 
   {% endblock %}
 

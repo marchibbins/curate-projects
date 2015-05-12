@@ -34,8 +34,7 @@
  * Logo
  */
 :root {
-  --Logo-height-sm: 60px;
-  --Logo-height-lg: 70px;
+  --Logo-height: 70px;
   --Logo-ratio: 145/200;
   --Logo-icon-width: 38px;
   --Logo-icon-height: calc(var(--Logo-icon-width)*var(--Logo-ratio));
@@ -63,6 +62,14 @@
  */
 :root {
   --SubNav-height: calc(var(--line-height-pixels)*3px);
+}
+
+/**
+ * ProjectContent
+ */
+:root {
+  --ProjectContent-height: calc(var(--line-height-pixels)*15px);
+  --ProjectContent-width: 420px;
 }
 
 /**

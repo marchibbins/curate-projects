@@ -1,11 +1,14 @@
-.ProjectContent {
-  height: 420px;
-  width: 100%;
-  max-width: 420px;
-  box-sizing: border-box;
-}
-@media(--sm-viewport){
+@media(--md-viewport-plus){
   .ProjectContent {
-    max-width: none;
+    height: var(--ProjectContent-height);
+    width: 100%;
+    max-width: var(--ProjectContent-width);
+    box-sizing: border-box;
+    padding-left: 0;
   }
+}
+
+.ProjectContent {
+  max-width: none;
+  padding-left: var(--space-small-px);
 }
