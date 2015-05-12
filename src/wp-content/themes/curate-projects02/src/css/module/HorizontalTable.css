@@ -13,11 +13,12 @@
     vertical-align: top;
   }
 
-  .HorizontalTable-cell-container {
-    height: var(--HorizontalTable-height);
+  .HorizontalTable-cell--article .HorizontalTable-cell-container {
+    width: 380px;
   }
 
   .HorizontalTable-cell-container {
+    height: var(--HorizontalTable-height);
     width: var(--HorizontalTable-min-width);
     max-height: var(--HorizontalTable-height);
   }

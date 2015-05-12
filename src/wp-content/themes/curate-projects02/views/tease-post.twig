@@ -1,11 +1,11 @@
 {% extends "tease.twig" %}
 
 {% block content %}
-	<div class="Tease">
-		<h2>{{post.title}}</h2>
-		 {% if post.extra_image %}
-		 <img src="{{TimberImage(post.get_field('extra_image')).src}}" />
-		 {% endif %}
-		 <p>{{post.get_preview(25)}}</p>
-	</div>
+<div class="Tease">
+  {% if post.extra_image %}
+  <img src="{{TimberImage(post.get_field('extra_image')).src}}" />
+  {% endif %}
+  <h2>{{post.title}}</h2>
+  <p>{{post.content}}</p>
+</div>
 {% endblock %}

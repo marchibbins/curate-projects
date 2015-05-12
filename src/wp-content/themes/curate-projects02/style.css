@@ -1891,11 +1891,12 @@ ul {
     vertical-align: top;
   }
 
-  .HorizontalTable-cell-container {
-    height: 420px;
+  .HorizontalTable-cell--article .HorizontalTable-cell-container {
+    width: 380px;
   }
 
   .HorizontalTable-cell-container {
+    height: 420px;
     width: 420px;
     max-height: 420px;
   }
@@ -2071,10 +2072,7 @@ ul {
 }
 
 .Tease img {
-  max-height: 200px;
-  float: left;
-  padding-right: 10px;
-  padding-bottom: 10px;
+  max-width: 100%;
 }
 
 @font-face {
