@@ -2034,6 +2034,7 @@ ul {
     max-width: none;
   }
 
+  .Image--single,
   .Image--first {
     padding-left: 0;
   }

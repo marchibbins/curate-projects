@@ -1,6 +1,9 @@
 {% extends "base.twig" %}
 
-{% block content_middle %}
+{% block content %}
+{% embed "layout.twig" %}
+
+  {% block main %}
   <article class="ProjectContent">
 
     <header>
@@ -30,6 +33,8 @@
     </div>
   </article>
 
+  {% endblock %}
+{% endembed %}
 {% endblock %}
 
 {% block content_right %}
