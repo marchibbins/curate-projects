@@ -3,14 +3,14 @@
   position: relative;
   z-index: 1;
   height: 100%;
-  margin-top: var(--space-small-px);
 }
 
 .Content-fullScroll {
   position: absolute;
   top: 0;
-  bottom: calc(var(--Logo-height));
+  bottom: calc(var(--Logo-height) - var(--space-small-px));
   overflow-y: auto;
+  padding-top: var(--space-small-px);
 }
 
 .Content--withSubNav .Content-fullScroll {

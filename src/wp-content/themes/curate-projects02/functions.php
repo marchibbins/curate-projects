@@ -58,3 +58,5 @@ function myfoo( $text ) {
 	$text .= ' bar!';
 	return $text;
 }
+
+add_filter('show_admin_bar', '__return_false');

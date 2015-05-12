@@ -4,34 +4,30 @@
 {% embed "layout.twig" %}
 
   {% block main %}
-  <article class="ProjectContent">
+  <div class="Content-fullScroll Content-fullScroll--constrain">
+  	<div class="Content-fullScroll-inner">
 
-    <header>
-      <h2>{{post.title}}</h2>
-      {% if post.children('page')|length %}
-      <nav class="Nav Project-nav">
-        <ul class="Arrange">
-          {% for page in post.children('page') %}
-          <li class="Arrange-sizeFit"><a href="#{{loop.index}}">{{page.sub_page_title}}</a></li>
-          {% endfor %}
-        </ul>
-      </nav>
-      {% endif %}
-    </header>
+      <article class="ProjectContent">
+        <header><h2>{{post.title}}</h2></header>
 
-    <div class="YScroll">
-      <div class="article">
-        <div>
-          {{post.content}}
+
+        <div class="YScroll">
+          <div class="Article">
+            <div>
+              {{post.content}}
+            </div>
+            {% for page in post.children('page') %}
+            <div class="u-hidden">
+              {{page.content}}
+            </div>
+            {% endfor %}
+          </div>
         </div>
-        {% for page in post.children('page') %}
-        <div class="u-hidden">
-          {{page.content}}
-        </div>
-        {% endfor %}
-      </div>
+      </article>
+
     </div>
-  </article>
+  </div>
+
 
   {% endblock %}
 {% endembed %}

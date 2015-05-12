@@ -1948,14 +1948,14 @@ ul {
   position: relative;
   z-index: 1;
   height: 100%;
-  margin-top: 10px;
 }
 
 .Content-fullScroll {
   position: absolute;
   top: 0;
-  bottom: 70px;
+  bottom: 60px;
   overflow-y: auto;
+  padding-top: 10px;
 }
 
 .Content--withSubNav .Content-fullScroll {
