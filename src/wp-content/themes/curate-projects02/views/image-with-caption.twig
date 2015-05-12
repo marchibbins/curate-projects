@@ -1,0 +1,16 @@
+<div class="Image {{extra_class}}">
+  <img src="{{TimberImage(img).src('large')}}" alt="">
+  {% if (TimberImage(img).caption or TimberImage(img).materials or TimberImage(img).dimensions) %}
+  <ul class="Image-caption">
+    {% if TimberImage(img).caption %}
+    <li class="Image-caption-item">{{ TimberImage(img).caption }}</li>
+    {% endif %}
+    {% if TimberImage(img).materials %}
+    <li class="Image-caption-item">{{ TimberImage(img).materials }}</li>
+    {% endif %}
+    {% if TimberImage(img).dimensions %}
+    <li class="Image-caption-item">{{ TimberImage(img).dimensions }}</li>
+    {% endif %}
+  </ul>
+  {% endif %}
+</div>

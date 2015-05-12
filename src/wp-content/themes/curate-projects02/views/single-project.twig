@@ -28,23 +28,7 @@
   		    {% for img in post.get_field('gallery') %}
   		    <div class="HorizontalTable-cell HorizontalTable-cell--img">
   		      <div class="HorizontalTable-cell-container HorizontalTable-cell-container--img">
-  		        <div class="Image{% if loop.first %} Image--first{% endif %}">
-  		          <img src="{{TimberImage(img).src('large')}}" alt="">
-  		          {% if (TimberImage(img).caption or TimberImage(img).materials or TimberImage(img).dimensions) %}
-  		            <ul class="Image-caption">
-  		              {% if TimberImage(img).caption %}
-  		                <li class="Image-caption-item">{{ TimberImage(img).caption }}</li>
-  		              {% endif %}
-  		              {% if TimberImage(img).materials %}
-  		                <li class="Image-caption-item">{{ TimberImage(img).materials }}</li>
-  		              {% endif %}
-  		              {% if TimberImage(img).dimensions %}
-  		                <li class="Image-caption-item">{{ TimberImage(img).dimensions }}</li>
-  		              {% endif %}
-  		            </ul>
-  		          {% endif %}
-  		      	</div>
-
+              {% include 'image-with-caption.twig' with {'img':img, 'extra_class' : loop.first ? 'Image--first' : ''} %}
   		      </div>
   		    </div>
   		    {% endfor %}
