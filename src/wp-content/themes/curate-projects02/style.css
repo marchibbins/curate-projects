@@ -1847,6 +1847,7 @@ ul {
 
 .Nav--primary {
   display: none;
+  font-size: 14px;
 }
 
 .Nav--primary.is-open {
@@ -1869,6 +1870,7 @@ ul {
 @media (min-width:520px) {
   .Nav--primary {
     display: block;
+    font-size: 12px;
   }
 
   .Nav-toggle {
@@ -1933,8 +1935,13 @@ ul {
   box-sizing: border-box;
 }
 
+.Banner.is-open {
+  height: 100%;
+}
+
 @media (min-width:520px) {
   .Banner {
+    height: auto;
     width: 200px;
     float: left;
     z-index: 0;

@@ -3,7 +3,7 @@ jQuery( document ).ready( function( $ ) {
   $('.js-toggle-wrapper').on('click', function(e){
 
     e.preventDefault();
-    $('.Banner .Nav--primary').toggleClass('is-open');
+    $('.Banner, .Banner .Nav--primary').toggleClass('is-open');
   });
 
 

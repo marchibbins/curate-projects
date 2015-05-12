@@ -20,6 +20,7 @@
 
 .Nav--primary {
   display: none;
+  font-size: 14px;
 }
 
 .Nav--primary.is-open {
@@ -42,6 +43,7 @@
 @media(--md-viewport-plus){
   .Nav--primary {
     display: block;
+    font-size: 12px;
   }
 
   .Nav-toggle {

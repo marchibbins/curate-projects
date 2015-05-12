@@ -8,8 +8,13 @@
   box-sizing: border-box;
 }
 
+.Banner.is-open {
+  height: 100%;
+}
+
 @media(--md-viewport-plus){
   .Banner {
+    height: auto;
     width: var(--Banner-width);
     float: left;
     z-index: 0;
