@@ -5,3 +5,13 @@
   max-width: 100%;
 }
 
+.Tease a {
+  color: var(--link-color-base);
+  text-decoration: none;
+}
+
+.Tease a:hover,
+.Tease a:focus
+.Tease a:active {
+  color: var(--link-color-hover-base);
+}
