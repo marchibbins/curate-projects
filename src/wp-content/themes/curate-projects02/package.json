@@ -16,7 +16,8 @@
     "gulp-rework": "^1.0.3",
     "gulp-rename": "^1.2.0",
     "rework-suit": "^4.0.0",
-    "rework-plugin-colors": "^1.0.3"
+    "rework-plugin-colors": "^1.0.3",
+    "gulp-sourcemaps": "^1.5.2"
   },
   "dependencies": {
     "suitcss-base": "^0.8.0",

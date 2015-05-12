@@ -14,10 +14,10 @@ var color        = require('rework-plugin-colors');
 gulp.task('suit', function() {
 
   return gulp.src(config.paths.mainFile)
-    .pipe(sourcemaps.init())
-        .pipe(rework(suit()))
-        .pipe(rework(color()))
-        .pipe(rework(rems()))
+    .pipe(sourcemaps.init()).on('error', handleError)
+        .pipe(rework(suit())).on('error', handleError)
+        .pipe(rework(color())).on('error', handleError)
+        .pipe(rework(rems())).on('error', handleError)
         .pipe(autoprefixer(config.autoprefixer))
     .pipe(rename('style.css'))
     .pipe(sourcemaps.write('.'))
