@@ -88,6 +88,7 @@
  */
 
 :root {
+  --Toggle-bar-width: 30px;
   --Toggle-bar-height: 5px;
   --Toggle-bar-spacing: 4px;
 }

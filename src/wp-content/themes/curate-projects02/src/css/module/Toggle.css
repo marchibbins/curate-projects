@@ -1,6 +1,6 @@
 .Toggle {
   display: block;
-  width:30px;
+  width: var(--Toggle-bar-width);
   height: var(--Toggle-bar-height);
   background-color:#111;
   border-radius:5px;
