@@ -2078,6 +2078,10 @@ ul {
   }
 }
 
+.Tease--home {
+  padding: 0 10px;
+}
+
 .Tease img {
   max-width: 100%;
 }

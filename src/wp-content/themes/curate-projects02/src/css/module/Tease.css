@@ -1,6 +1,10 @@
 .Tease {
 }
 
+.Tease--home {
+    padding: 0 var(--space-small-px);
+}
+
 .Tease img {
   max-width: 100%;
 }
