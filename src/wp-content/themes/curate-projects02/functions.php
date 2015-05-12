@@ -1,8 +1,9 @@
 <?php
 
-require_once 'custom-fields/project.php';
+require_once 'custom-fields/project-studio.php';
 require_once 'custom-fields/extra-image.php';
 require_once 'custom-post-type/project.php';
+require_once 'custom-post-type/studio-visit.php';
 
 if ( ! class_exists( 'Timber' ) ) {
   function admin_notices() {
