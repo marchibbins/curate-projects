@@ -7,18 +7,36 @@
   {% set featured = TimberPost(post.get_field('featured_post')) %}
 
   <div class="HorizontalTable">
-    <div class="HorizontalTable-cell HorizontalTable-cell--article">
-      <div class="HorizontalTable-cell-container HorizontalTable-cell-container--img">
-        <div class="Tease">
-          {% include 'image-with-caption.twig' with {'img':TimberImage(featured.gallery[0]), 'extra_class': 'Image--single' } %}
-          <a href="{{featured.link}}">
-            <h2>{{ featured.title }}</h2>
-          </a>
-        </div>
+  	<div class="HorizontalTable-cell HorizontalTable-cell--img">
+  		<div class="HorizontalTable-cell-container HorizontalTable-cell-container--img">
+  {% include 'image-with-caption.twig' with {'img':TimberImage(featured.gallery[0]), 'extra_class': 'Image--single' } %}
       </div>
     </div>
   </div> <!--- /.HorizontalTable -->
 
+  <a href="{{featured.link}}">
+  	<h2>{{ featured.title }}</h2>
+  </a>
+
   {% endblock %}
 {% endembed %}
+{% endblock %}
+
+{% block content_right %}
+<article>
+  <div class="HorizontalTable">
+
+    {% if post.get_field('extra_image') %}
+    <div class="HorizontalTable-cell HorizontalTable-cell--img">
+      <div class="HorizontalTable-cell-container HorizontalTable-cell-container--img">
+        <div class="Image">
+          <img src="{{TimberImage(post.get_field('extra_image')).src('large')}}" alt="">
+        </div>
+      </div>
+    </div>
+    {% endif %}
+
+  </div> <!--- /.HorizontalTable -->
+
+</article>
 {% endblock %}
