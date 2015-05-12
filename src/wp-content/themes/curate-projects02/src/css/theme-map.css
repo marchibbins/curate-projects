@@ -66,6 +66,14 @@
 }
 
 /**
+ * ProjectContent
+ */
+:root {
+  --ProjectContent-height: calc(var(--line-height-pixels)*15px);
+  --ProjectContent-width: 420px;
+}
+
+/**
  * Horizontal scroll table.
  */
 
