@@ -1,8 +1,8 @@
 <article class="tease tease-{{post.post_type}}" id="tease-{{post.ID}}">
   <div class="Tease">
 	{% block content %}
-    <img src="{{TimberImage(post.gallery[0]).src}}" />
     <a href="{{post.link}}">
+        <img src="{{TimberImage(post.gallery[0]).src}}" />
       <h2>{{post.title}}</h2>
     </a>
 	{% endblock %}
