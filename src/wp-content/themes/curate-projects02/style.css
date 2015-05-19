@@ -2078,12 +2078,15 @@ ul {
   }
 }
 
-.Tease--home {
-  padding: 0 10px;
+.Tease img {
+  display: block;
+  max-width: 100%;
 }
 
-.Tease img {
-  max-width: 100%;
+.Tease h2,
+.Tease h3 {
+  margin-top: 14px;
+  margin-top: 0.8571428rem;
 }
 
 .Tease a {

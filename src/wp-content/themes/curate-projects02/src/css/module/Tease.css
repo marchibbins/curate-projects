@@ -1,12 +1,13 @@
 .Tease {
 }
 
-.Tease--home {
-    padding: 0 var(--space-small-px);
+.Tease img {
+  display: block;
+  max-width: 100%;
 }
 
-.Tease img {
-  max-width: 100%;
+.Tease h2, .Tease h3 {
+  margin-top: 0.8571428rem;
 }
 
 .Tease a {
