@@ -23,6 +23,7 @@ class StarterSite extends TimberSite {
 		add_filter( 'get_twig', array( $this, 'add_to_twig' ) );
 		add_action( 'init', array( $this, 'register_post_types' ) );
 		add_action( 'init', array( $this, 'register_taxonomies' ) );
+    add_filter( 'nav_menu_css_class', array($this, 'archive_nav_class'), 10, 2 );
 		parent::__construct();
 	}
 
@@ -49,6 +50,17 @@ class StarterSite extends TimberSite {
 		$twig->addFilter( 'myfoo', new Twig_Filter_Function( 'myfoo' ) );
 		return $twig;
 	}
+
+  function archive_nav_class( $classes, $item ) {
+
+    if ( $item->type = 'post_type_archive' && is_post_type_archive($item->object)) {
+      $item->current = true;
+    }
+
+    return $classes;
+
+  }
+
 
 }
 
