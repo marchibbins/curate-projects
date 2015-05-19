@@ -8,7 +8,7 @@
 
   <div class="HorizontalTable">
   	<div class="HorizontalTable-cell HorizontalTable-cell--img">
-  		<div class="HorizontalTable-cell-container HorizontalTable-cell-container--img">
+  		<div class="HorizontalTable-cell-container HorizontalTable-cell-container--img Autoheight">
         {% include 'image-with-caption.twig' with {'img':TimberImage(featured.gallery[0]), 'extra_class': 'Image--single' } %}
       </div>
       <div class="Tease Tease--home">
@@ -30,7 +30,7 @@
 
     {% if post.get_field('extra_image') %}
     <div class="HorizontalTable-cell HorizontalTable-cell--img">
-      <div class="HorizontalTable-cell-container HorizontalTable-cell-container--img">
+      <div class="HorizontalTable-cell-container HorizontalTable-cell-container--img Autoheight">
         <div class="Image">
           <img src="{{TimberImage(post.get_field('extra_image')).src('large')}}" alt="">
         </div>

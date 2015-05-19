@@ -2216,4 +2216,30 @@ div[aria-hidden='true'] {
   position: relative;
   height: 100%;
 }
+
+/**
+ * Breakpoint definition for JS - see https://github.com/JoshBarr/on-media-query
+ */
+
+head {
+  font-family: 'mobile';
+}
+
+@media (min-width:320px) and (max-width:520px) {
+  head {
+    font-family: 'sm-viewport';
+  }
+}
+
+@media (min-width:520px) and (max-width:960px) {
+  head {
+    font-family: 'md-viewport';
+  }
+}
+
+@media (min-width:960px) {
+  head {
+    font-family: 'lg-viewport';
+  }
+}
 /*# sourceMappingURL=style.css.map */
