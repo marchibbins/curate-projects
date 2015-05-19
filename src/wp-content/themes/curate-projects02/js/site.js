@@ -10,7 +10,6 @@ jQuery( document ).ready( function( $ ) {
   $("li[role='tab']").click(function(e){
 
     e.preventDefault();
-    console.log('prevent');
 
     $("li[role='tab']").attr("aria-selected","false");
     $(this).attr("aria-selected","true");
@@ -26,5 +25,20 @@ jQuery( document ).ready( function( $ ) {
       .removeClass("u-hidden");
 
   });
+
+  $(window).resize(autoHeight);
+  autoHeight();
+
+  function autoHeight () {
+    var breakpoint = $('head').css('fontFamily');
+    if (breakpoint === 'md-viewport' || breakpoint === 'lg-viewport') {
+      var baseHeight = $('.Wrapper').height() - $('.Header').height(),
+          subnavHeight = $('.SubNav').length ? $('.SubNav').outerHeight() : 0,
+          tweakHeight = baseHeight-subnavHeight-16;
+      $('.Autoheight').css({'height': tweakHeight, 'max-height': tweakHeight});
+    } else {
+      $('.Autoheight').attr('style', '');
+    }
+  };
 
 });

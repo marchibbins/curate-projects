@@ -125,3 +125,28 @@ background: rgba(0, 0, 0, 0.2); }
   position: relative;
   height: 100%;
 }
+
+/**
+ * Breakpoint definition for JS - see https://github.com/JoshBarr/on-media-query
+ */
+head {
+  font-family: 'mobile';
+}
+
+@media(--sm-viewport) {
+  head {
+    font-family: 'sm-viewport';
+  }
+}
+
+@media(--md-viewport) {
+  head {
+    font-family: 'md-viewport';
+  }
+}
+
+@media(--lg-viewport) {
+  head {
+    font-family: 'lg-viewport';
+  }
+}
