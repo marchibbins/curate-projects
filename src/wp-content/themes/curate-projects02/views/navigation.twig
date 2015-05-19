@@ -6,7 +6,7 @@
       {% if item.get_children %}
       <ul>
         {% for child in item.get_children %}
-        <li class="Nav-item {% if child.current %}is-active{% endif %}">
+        <li class="Nav-item {% if child.current and item.current != true %}is-active{% endif %}">
           <a href="{{child.get_link}}">{{child.title}}</a>
         </li>
         {% endfor %}
