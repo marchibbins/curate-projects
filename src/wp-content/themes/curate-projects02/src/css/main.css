@@ -54,7 +54,7 @@ body {
 }
 
 body {
-  overflow-y: hidden;
+  overflow: hidden;
 }
 
 /* Baseline.it */
