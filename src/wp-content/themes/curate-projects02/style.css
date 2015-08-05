@@ -1229,7 +1229,7 @@ ul {
  * Size: breakpoint 2 (medium)
  */
 
-@media (min-width:520px) and (max-width:960px) {
+@media (min-width:668px) and (max-width:960px) {
   /**
    * Make an element shrink wrap its content.
    */
@@ -1790,7 +1790,7 @@ ul {
   width: 38px;
 }
 
-@media (min-width:520px) {
+@media (min-width:668px) {
   .Logo {
     font-size: 28px;
     font-size: 1.75rem;
@@ -1867,7 +1867,7 @@ ul {
   cursor: pointer;
 }
 
-@media (min-width:520px) {
+@media (min-width:668px) {
   .Nav--primary {
     display: block;
     font-size: 12px;
@@ -1882,7 +1882,7 @@ ul {
   padding: 0 10px;
 }
 
-@media (min-width:520px) {
+@media (min-width:668px) {
   .HorizontalTable {
     display: table;
     table-layout: fixed;
@@ -1910,7 +1910,7 @@ ul {
   }
 }
 
-@media (min-width:520px) {
+@media (min-width:668px) {
   .ProjectContent {
     height: 420px;
     width: 100%;
@@ -1939,7 +1939,7 @@ ul {
   height: 100%;
 }
 
-@media (min-width:520px) {
+@media (min-width:668px) {
   .Banner {
     height: auto;
     width: 200px;
@@ -1973,7 +1973,7 @@ ul {
   bottom: 154px;
 }
 
-@media (min-width:520px) {
+@media (min-width:668px) {
   .Content {
     overflow-y: hidden;
     height: auto;
@@ -2033,9 +2033,8 @@ ul {
   opacity: 0.5;
 }
 
-@media (min-width:520px) {
+@media (min-width:668px) {
   .Image {
-    border-right: 1px solid #DDDDDD;
     border-bottom: 0px none;
     height: 100%;
     padding: 0 20px;
@@ -2068,7 +2067,7 @@ ul {
   padding-top: 10px;
 }
 
-@media (min-width:520px) {
+@media (min-width:668px) {
   .SubNav {
     position: absolute;
     left: 200px;
@@ -2123,7 +2122,7 @@ body {
 }
 
 body {
-  overflow-y: hidden;
+  overflow: hidden;
 }
 
 /* Baseline.it */
@@ -2152,8 +2151,8 @@ h2 {
   /* 22.652px */
   line-height: 28px;
   line-height: 1.75rem;
-  margin-bottom: 28px;
-  margin-bottom: 1.75rem;
+  margin-bottom: 14px;
+  margin-bottom: 0.875rem;
   font-weight: 400;
 }
 
@@ -2234,7 +2233,7 @@ head {
   }
 }
 
-@media (min-width:520px) and (max-width:960px) {
+@media (min-width:668px) and (max-width:960px) {
   head {
     font-family: 'md-viewport';
   }

@@ -13,8 +13,8 @@
 @custom-media --sm-viewport (min-width:320px) and (max-width:520px);
 @custom-media --sm-viewport-plus (min-width:320px);
 
-@custom-media --md-viewport (min-width:520px) and (max-width:960px);
-@custom-media --md-viewport-plus (min-width:520px);
+@custom-media --md-viewport (min-width:668px) and (max-width:960px);
+@custom-media --md-viewport-plus (min-width:668px);
 
 @custom-media --lg-viewport (min-width:960px);
 

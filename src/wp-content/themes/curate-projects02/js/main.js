@@ -42,7 +42,7 @@ jQuery( document ).ready( function( $ ) {
     if (breakpoint === 'md-viewport' || breakpoint === 'lg-viewport') {
       var baseHeight = $('.Wrapper').height() - $('.Header').height(),
           subnavHeight = $('.SubNav').length ? $('.SubNav').outerHeight() : 0,
-          tweakHeight = baseHeight-subnavHeight-36;
+          tweakHeight = baseHeight-subnavHeight-16;
       $('.Autoheight').css({'height': tweakHeight, 'max-height': tweakHeight});
     } else {
       $('.Autoheight').attr('style', '');

@@ -1,5 +1,5 @@
 {% extends "tease.twig" %}
 	{% block content %}
   {{ parent() }}
-  {{ post.get_field('sub_pages')[0].sub_page_content}}
+  <p>{{ post.get_field('sub_pages')[0].sub_page_content|excerpt(30)}}</p>
 	{% endblock %}

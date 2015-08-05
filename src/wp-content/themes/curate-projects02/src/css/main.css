@@ -54,7 +54,7 @@ body {
 }
 
 body {
-  overflow-y: hidden;
+  overflow: hidden;
 }
 
 /* Baseline.it */
@@ -76,7 +76,7 @@ h1 {
 h2 {
   font-size: 1.416rem; /* 22.652px */
   line-height: 1.75rem;
-  margin-bottom: 1.75rem;
+  margin-bottom: 0.875rem;
   font-weight: 400;
 }
 
