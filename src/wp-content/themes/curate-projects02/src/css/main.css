@@ -85,6 +85,10 @@ p {
   margin-bottom: 1rem;
 }
 
+a {
+    color: var(--link-color-hover-base);
+}
+
 div[aria-hidden='true'] {
   display: none;
 }
