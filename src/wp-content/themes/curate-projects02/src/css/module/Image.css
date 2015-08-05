@@ -40,7 +40,6 @@
 @media(--md-viewport-plus){
 
   .Image {
-    border-right: 1px solid #DDDDDD;
     border-bottom: 0px none;
     height: 100%;
     padding: 0 20px;
