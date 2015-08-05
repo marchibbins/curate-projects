@@ -1965,6 +1965,10 @@ ul {
   padding-top: 10px;
 }
 
+.Content-fullScroll-inner {
+  padding-bottom: 10px;
+}
+
 .Content--withSubNav .Content-fullScroll {
   bottom: 154px;
 }
@@ -1987,11 +1991,6 @@ ul {
 
   .Content-fullScroll--constrain {
     max-width: 420px;
-  }
-
-  .Content--withSubNav .Content-fullScroll-inner,
-  .Content-fullScroll-inner {
-    padding-bottom: 0;
   }
 }
 

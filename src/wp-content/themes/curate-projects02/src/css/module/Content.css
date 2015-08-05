@@ -41,7 +41,4 @@
     max-width: var(--ProjectContent-width);
   }
 
-  .Content--withSubNav .Content-fullScroll-inner {
-    padding-bottom: 0;
-  }
 }
