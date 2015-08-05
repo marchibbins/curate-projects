@@ -13,7 +13,7 @@ var color        = require('rework-plugin-colors');
 
 gulp.task('suit', function() {
 
-  return gulp.src(config.paths.mainFile)
+  return gulp.src(config.paths.stylesEntry)
     .pipe(sourcemaps.init()).on('error', handleError)
         .pipe(rework(suit())).on('error', handleError)
         .pipe(rework(color())).on('error', handleError)
@@ -21,6 +21,6 @@ gulp.task('suit', function() {
         .pipe(autoprefixer(config.autoprefixer))
     .pipe(rename('style.css'))
     .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest(config.paths.componentsDest))
+    .pipe(gulp.dest(config.paths.stylesDest))
 
 });

@@ -1,2 +1,2 @@
 var gulp = require('gulp');
-gulp.task('default', ['suit']);
+gulp.task('default', ['suit', 'scripts']);

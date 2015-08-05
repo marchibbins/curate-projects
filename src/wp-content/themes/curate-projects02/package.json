@@ -28,6 +28,10 @@
     "rework-rem-fallback": "^1.0.0",
     "suitcss-utils-align": "^0.2.2",
     "suitcss-utils-position": "^0.2.2",
-    "suitcss-utils-layout": "^0.4.2"
+    "suitcss-utils-layout": "^0.4.2",
+    "vinyl-source-stream": "^1.1.0",
+    "gulp-concat": "^2.6.0",
+    "browserify": "^11.0.1",
+    "gulp-notify": "^2.2.0"
   }
 }

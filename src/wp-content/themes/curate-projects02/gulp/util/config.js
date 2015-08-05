@@ -1,8 +1,10 @@
 module.exports = {
   paths : {
-    componentsSrc: 'src/css/**/*.css',
-    componentsDest: '.',
-    mainFile: 'src/css/main.css'
+    styleSrc: 'src/css/**/*.css',
+    stylesDest: '.',
+    stylesEntry: 'src/css/main.css',
+    scriptsSrc: 'src/scripts/**/*.js',
+    scriptsDest: './js',
   },
   autoprefixer : {
     browsers : [
