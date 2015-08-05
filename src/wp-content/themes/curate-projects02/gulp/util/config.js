@@ -1,6 +1,6 @@
 module.exports = {
   paths : {
-    styleSrc: 'src/css/**/*.css',
+    stylesSrc: 'src/css/**/*.css',
     stylesDest: '.',
     stylesEntry: 'src/css/main.css',
     scriptsSrc: 'src/scripts/**/*.js',
