@@ -1898,13 +1898,13 @@ ul {
   }
 
   .HorizontalTable-cell-container {
-    height: 420px;
+    height: 392px;
     width: 420px;
-    max-height: 420px;
+    max-height: 392px;
   }
 
   .HorizontalTable-cell--img .HorizontalTable-cell-container {
-    height: 420px;
+    height: 392px;
     width: auto;
     max-height: none;
   }
@@ -1966,7 +1966,7 @@ ul {
 }
 
 .Content-fullScroll-inner {
-  padding-bottom: 10px;
+  padding-bottom: 28px;
 }
 
 .Content--withSubNav .Content-fullScroll {
@@ -2016,20 +2016,23 @@ ul {
   bottom: 20px;
   left: 10px;
   right: 10px;
-  padding: 5px;
+  padding: 5px 0;
   line-height: 1.6;
-  background-color: rgba(0, 0, 0, 0.6);
-  color: white;
+  color: #222;
 }
 
 .Image-caption-item {
   display: inline-block;
+  text-transform: uppercase;
+  font-size: 10px;
+  font-size: 0.6rem;
+  color: #666;
 }
 
 .Image-caption-item:before {
-  content: '\2022';
-  padding-right: 5px;
-  margin-left: 5px;
+  content: '';
+  padding-right: 0px;
+  margin-left: 0px;
   opacity: 0.5;
 }
 
@@ -2052,7 +2055,7 @@ ul {
   }
 
   .Image-caption {
-    bottom: 0;
+    bottom: -28px;
     left: 20px;
     right: 20px;
   }

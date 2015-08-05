@@ -77,7 +77,7 @@
  */
 
 :root {
-  --HorizontalTable-height: calc(var(--line-height-pixels)*15px);
+  --HorizontalTable-height: calc(var(--line-height-pixels)*14px);
   --HorizontalTable-height-img: calc(var(--line-height-pixels)*18px);
   --HorizontalTable-min-width: calc(var(--line-height-pixels)*15px);
 }
