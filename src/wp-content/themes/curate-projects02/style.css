@@ -2165,6 +2165,10 @@ p {
   margin-bottom: 1rem;
 }
 
+a {
+  color: #f4900c;
+}
+
 div[aria-hidden='true'] {
   display: none;
 }
